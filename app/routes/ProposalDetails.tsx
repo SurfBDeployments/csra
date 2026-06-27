@@ -8,7 +8,7 @@ import NavHeader from '../navheader';
 interface ProposalDetails {
   id: string;
   name: string;
-  projectId: string;
+  proposalId: string;
   startDate: string;
   endDate: string;
   description: string;
@@ -31,7 +31,7 @@ const ProposalHome: React.FC = () => {
     {
       id: 'PROJ-2026-001',
       name: 'AI Platform - Bold Standard',
-      projectId: 'PROJ-2024-001',
+      proposalId: 'PROJ-2026-001',
       startDate: 'February 8, 2026',
       endDate: 'December 31, 2026',
       description: 'Gold standard Proposal template for data analytics platforms. Contains best practices, lessons learned, and proven methodologies for similar Proposals.',
@@ -81,7 +81,7 @@ const ProposalHome: React.FC = () => {
 
               <div className="project-header">
                 <h2>{selectedProposal.name}</h2>
-                <div className="identifier">Project ID: {selectedProposal.projectId}</div>
+                <div className="identifier">Project ID: {selectedProposal.proposalId}</div>
                 <div className="date-range">
                   <strong>Period of Performance:</strong> {selectedProposal.startDate} - {selectedProposal.endDate}
                 </div>
