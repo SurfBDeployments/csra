@@ -63,7 +63,7 @@ const ProposalHome: React.FC = () => {
       <div className="projects-header container">
         <h2>Project Summary Tool Center</h2>
         <nav aria-label="Main navigation">
-          <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className='searchon'>Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="/ppt">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
+          <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className='searchon'>Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
         </nav>
       </div>
 
