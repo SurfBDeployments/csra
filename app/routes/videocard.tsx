@@ -19,7 +19,7 @@ export default function MediaControlCard() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   // Convert watch URL to embed format for iframes
-  const embedUrl = "https://www.youtube.com/watch?v=F34Vlqtv0lQ".replace('watch?v=', 'embed/');
+  const embedUrl = "https://www.youtube.com/watch?v=F34Vlqtv0lQ?autoplay=1".replace('watch?v=', 'embed/');
 
   return (
     <Card sx={{ display: 'inline-block' }}>
@@ -45,8 +45,9 @@ export default function MediaControlCard() {
       ) : (
         <CardMedia
           component="img"
-          sx={{ width: 800 }}
+          sx={{ width: 800, cursor: 'pointer' }}
           image="../../affordablecarescreen.png"
+          onClick={() => setIsPlaying(true)}
           alt="Affordable Care Act Video Thumbnail"
         />
       )}
