@@ -3,6 +3,7 @@ import '../styles/default.css';
 import Button from '@mui/material/Button';
 import MediaControlCard from './videocard';
 import Footer from '~/footer';
+import type { Route } from "./+types/home";
 
 
 interface NavLink {
@@ -39,7 +40,12 @@ function HomePage() {
   function handleClick() {
     setlikes(likes + 1);
   }
-
+function meta({loaderData}: Route.MetaArgs) {
+  return [
+    { title: "CSRA Modern Instranet" },
+    { name: "description", content: "Welcome to CSRA Modern Instranet!" },
+  ];
+}
   const topNavLinks: NavLink[] = [
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
