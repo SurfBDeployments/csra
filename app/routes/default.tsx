@@ -5,7 +5,15 @@ import MediaControlCard from './videocard';
 import Footer from '~/footer';
 import type { Route } from "./+types/home";
 
-
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "CSRA Modern Intranet" },
+    {
+      name: "description",
+      content: "Modernized CSRA enterprise intranet built with React, TypeScript, and Tailwind CSS.",
+    },
+  ];
+}
 interface NavLink {
   label: string;
   href: string;
@@ -40,12 +48,7 @@ function HomePage() {
   function handleClick() {
     setlikes(likes + 1);
   }
-function meta({loaderData}: Route.MetaArgs) {
-  return [
-    { title: "CSRA Modern Instranet" },
-    { name: "description", content: "Welcome to CSRA Modern Instranet!" },
-  ];
-}
+
   const topNavLinks: NavLink[] = [
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
