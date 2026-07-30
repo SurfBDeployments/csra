@@ -467,7 +467,7 @@ body {
   font-size: 1em;
 }
 
-option, select {
+option, select, input {
   font-size: .875em;
 }
 
