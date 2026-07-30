@@ -5,7 +5,7 @@ import MediaControlCard from './videocard';
 import Footer from '~/footer';
 import type { Route } from "./+types/home";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
     { title: "CSRA Modern Intranet" },
     {
@@ -48,7 +48,7 @@ function HomePage() {
   function handleClick() {
     setlikes(likes + 1);
   }
-
+ 
   const topNavLinks: NavLink[] = [
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
@@ -57,7 +57,7 @@ function HomePage() {
     { label: 'Collab & Community', href: '#' },
     { label: 'Benefits & Comp', href: '#' },
     { label: 'Careers', href: '#' },
-    { label: 'Help', href: '#' },
+    { label: 'News', href: '/highlights' },
   ];
 
   const sidebarLinks: NavLink[] = [
@@ -65,8 +65,8 @@ function HomePage() {
     { label: 'Timecard Support', href: '/benefits/timecard' },
     { label: 'Pay Dates & Holidays', href: '/benefits/payroll' },
     { label: 'Lync Communication', href: '/support/lync' },
-    { label: 'SRA Connects', href: '/collab/sra-connects' },
-    { label: 'Spark Community', href: 'https://spark.sra.com/' },
+    { label: 'CSRA Connects', href: '/collab/CSRA-connects' },
+    { label: 'Spark Community', href: 'https://spark.CSRA.com/' },
   ];
 
   const featuredBoxes: FeaturedBox[] = [
@@ -75,14 +75,14 @@ function HomePage() {
 
       image: '/CollaborateBanner400.jpg',
       links: [
-        { label: 'Best Teams at SRA', href: '/collab/bestteams' },
-        { label: "Bill's Blog", href: 'https://spark.sra.com/' },
+        { label: 'Best Teams at CSRA', href: '/collab/bestteams' },
+        { label: "Bill's Blog", href: 'https://spark.CSRA.com/' },
         { label: 'Communities of Practice', href: '/collab/cops' },
         { label: 'Employee Resource Groups', href: '/collab/erg' },
         { label: 'IS THERE', href: '/collab/isthere' },
         { label: 'Lync', href: '/support/infotech/pe/lync' },
-        { label: 'SRA Connects', href: '/collab/sra-connects' },
-        { label: 'Spark', href: 'https://spark.sra.com/' },
+        { label: 'CSRA Connects', href: '/collab/CSRA-connects' },
+        { label: 'Spark', href: 'https://spark.CSRA.com/' },
       ],
     },
     {
@@ -91,7 +91,7 @@ function HomePage() {
       links: [
         { label: 'Find Staff', href: '/careers/findstaff' },
         { label: 'Find Projects', href: '/projectsummary' },
-        { label: 'GovWin CRM', href: 'https://govwin.sra.com/' },
+        { label: 'GovWin CRM', href: 'https://govwin.CSRA.com/' },
         { label: 'Marketing Collateral', href: '/winwork' },
         { label: 'Recompetes', href: '/winwork/recompetes' },
         { label: 'Reusable Proposal Content', href: '/winwork/propdev' },
@@ -150,33 +150,36 @@ function HomePage() {
         <div className="page-layout">
           {/* Sidebar */}
           <aside>
-            <h3>My CSRA</h3>
-            <ul>
-              {sidebarLinks.map((link) => (
+            <section className="todo-section">
+              <h3>My CSRA</h3>
+              <ul>
+                {sidebarLinks.map((link) => (
 
-                <li key={link.label}>
-                  <a href={link.href} target={link.href.startsWith('http') ? '_blank' : '_self'} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="ethics-hotline">
-              <strong>Ethics Hotline</strong>
-              <br />
-              <a href="https://secure.ethicspoint.com/" target="_blank" rel="noopener noreferrer">
-                Report Online
-              </a>
-              <br />
-              or call <strong>866-384-4277</strong>
-            </div>
+                  <li key={link.label}>
+                    <a href={link.href} target={link.href.startsWith('http') ? '_blank' : '_self'} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="ethics-hotline">
+                <strong>Ethics Hotline</strong>
+                <br />
+                <a href="https://secure.ethicspoint.com/" target="_blank" rel="noopener noreferrer">
+                  Report Online
+                </a>
+                <br />
+                or call <strong>866-384-4277</strong>
+              </div>
+            </section>
+
 
 
             <section className="todo-section" style={{ marginTop: '20px' }}>
               <h3>Employee To-Do</h3>
               <div className="todo-item">
                 <a href="/benefits/wellness">Participate to earn Bright Rewards Credits</a>
-                <small>Due: 8/31/2025</small>
+                <small>Due: 8/31/2026</small>
               </div>
             </section>
             <div className="jobs-section">
@@ -226,25 +229,31 @@ function HomePage() {
                     <p>
                       Stay up to date with the latest CSRA announcements, policy updates, and important company information. Check back regularly for updates.
                     </p>
-                    <a href="/news">View All News →</a>
+                    <a href="/highlights">View All News →</a>
                   </div>
                   <div className="news-item">
-                    <h4>Featured Story</h4>
+                    <a href="/infocus"><h4>Featured Story</h4></a>
                     <p>
-                      SRA highlights achievements and featured content from across the organization. Celebrate wins and learn from peers.
+                      CSRA highlights achievements and featured content from across the organization. Celebrate wins and learn from peers.
                     </p>
 
                   </div>
                 </div>
                 <div>
+
                   <div className="highlights">
-                    <h3>SRA Highlights</h3>
-                    <span>Excellence in Innovation</span>
-                    <span>Committed to Success</span>
+
+                    <a href="/highlights">
+                      <h4>CSRA News Highlights</h4>
+                      <span>Excellence in Innovation</span>
+                      <span>Committed to Success</span></a>
+
                   </div>
-                  <div className="in-focus">
-                    <h3>In Focus</h3>
-                    <span>Featured Content Updates</span>
+
+
+                  <div className="in-focus"> <a href="/infocus">
+                    <h4>CSRA InFocus</h4>
+                    <span>Featured Content Updates</span></a>
                   </div>
 
                 </div>
@@ -259,22 +268,7 @@ function HomePage() {
 
             <section className="video-section">
               <MediaControlCard />
-              {/* <h3>Featured Video: SRA Get Covered</h3>
-              <p>Congratulations to our <strong>Affordable Care Act program team</strong> for putting together a commercial supporting the mission of the customer to drive traffic to enrollment assistance centers and increase enrollment in qualified health plans.</p>
-              <div className="video-placeholder">
-                <div className="video_section">
-                  <video
-                    src={
-                      "https://www.youtube.com/watch?v=F34Vlqtv0lQ"
-                    }
-                    poster="../affordablecarescreen.png"
-                    controls={true}
-                    className="video_player"
-                  >
-                    <track kind="captions" src="captions.vtt" srcLang="en" label="English" />
-                  </video>
-                </div>
-              </div> */}
+
             </section>
 
             {/* Social Media Section */}
@@ -282,7 +276,7 @@ function HomePage() {
 
               <h2>Connect With Us</h2>
               <div className="social-media">
-                <p>Follow SRA on social media for company updates and news</p>
+                <p>Follow CSRA on social media for company updates and news</p>
                 <div className="social-icons">
                   <p><img src="./socialicons.png" alt="Social Media" height="30" /></p>
                 </div>
@@ -299,7 +293,7 @@ function HomePage() {
         </div>
 
         {/* Footer */}
-     <Footer />
+        <Footer />
       </div>
     </>
   );

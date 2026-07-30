@@ -9,7 +9,8 @@ export default [
   route("projectresults", "routes/ProjectResults.tsx"),
   route("projectdetails", "routes/ProjectDetails.tsx"),
   route("proposal", "routes/ProposalHome.tsx"),
-
+   route("infocus", "routes/infocus.tsx"),
+   route("highlights", "routes/highlights.tsx"),
 ];
 
 

@@ -11,7 +11,7 @@
   text-align: left;
   color: #003366;
   font-family: inherit;
-  font-size: 13px;
+  font-size: .8125em;
   padding-bottom: 20px;
   font-weight: 700;
 }
@@ -22,7 +22,7 @@ a.searchlinks:hover {
   text-align: left;
   color: #00458A !important;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 1em;
   padding-bottom: 20px;
   font-weight: 700;
 }
@@ -219,7 +219,7 @@ a.searchon:hover {
   border-radius: 4px;
   text-decoration: none;
   color: #0066cc;
-  font-size: 14px;
+  font-size: 875em;
 }
 
 .pagination a:hover {
@@ -238,8 +238,8 @@ a.searchon:hover {
 }
 
 .search-info {
-  color: #666;
-  font-size: 14px;
+  color: #454545;
+  font-size: .875em;
 }
 
 /* Sidebar */
@@ -256,14 +256,14 @@ a.searchon:hover {
 
 body {
   font-family: Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: .875em;
   color: #333;
   line-height: 1.6;
 }
 
 p {
   font-family: Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: .875em;
   color: #333;
   line-height: 1.6;
 }
@@ -271,7 +271,7 @@ p {
 h2 {
   color: #003366;
   font-weight: bold;
-  font-size: large;
+  font-size: 1.5em;
 }
 
 header {
@@ -317,8 +317,8 @@ header {
 }
 
 button {
-  padding: 4px 14px;
-  font-size: 14px;
+  padding: 4px .875em;
+  font-size: .875em;
   cursor: pointer;
   background-color: #003366;
   color: #ededed !important;
@@ -330,8 +330,8 @@ button {
 
 button,
 button a {
-  padding: 4px 14px;
-  font-size: 14px;
+  padding: 4px .875em;
+  font-size: .875em;
   cursor: pointer;
   background-color: #003366;
   color: #ededed !important;
@@ -341,6 +341,10 @@ button a {
 .buttons {
   margin-top: 20px;
   text-align: center;
+}
+
+input:focus, button:focus {
+  outline: #003366 solid 2px;
 }
 
 input {
@@ -444,7 +448,7 @@ select {
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   height: fit-content;
-  font-size: 14px;
+  font-size: .875em;
 }
 
 .projects-sidebar nav ul {

@@ -77,7 +77,7 @@ const ProposalHome: React.FC = () => {
 
           {selectedProposal && (
             <article>
-              <h2>Proposal Summary Tool</h2>
+              <h2 className='h2proj'>Proposal Summary Tool</h2>
 
               <div className="project-header">
                 <h2>{selectedProposal.name}</h2>

@@ -36,7 +36,7 @@ const ProjectSummary: React.FC = () => {
       <NavHeader />
 
       <div className="projects-header container">
-        <h2>Projects Summary Tool Center</h2>
+         <h2 className='h2proj'>Projects Summary Tool Center</h2>
       
         <p className="search-info">This search looks for matches in the Project repository.</p>
         <nav aria-label="Main navigation">

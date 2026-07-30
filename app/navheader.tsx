@@ -16,7 +16,7 @@ const NavHeader = () => {
     { label: 'Collab & Community', href: '#', id: 'collab-community' },
     { label: 'Benefits & Comp', href: '#', id: 'benefits-comp' },
     { label: 'Careers', href: '#', id: 'careers' },
-    { label: 'Help', href: '#', id: 'help' },
+    { label: 'News', href: '/highlights', id: 'news' },
   ];
 
   return (
