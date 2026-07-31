@@ -38,7 +38,7 @@ const ProposalResults: React.FC = () => {
 
       <div className="projects-header container">
 
-         <h2 className='h2proj'>Proposal Summary Results</h2>
+        <h2 className='h2proj'>Proposal Summary Results</h2>
         <p className="search-info">This search looks for matches in the Proposal repository.</p>
         <nav aria-label="Main navigation">
           <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal" className='searchon'>Proposals</a> | <a href="/projectsummary">Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
@@ -246,19 +246,20 @@ const ProposalResults: React.FC = () => {
                 </div>
                 <div className="result-url">/Projects/standards/data-analytics-gold-standard.pdf</div>
               </div>
-</div>
+            </div>
+            </section>
 
-              <div className="pagination">
-                <span className="disabled">&laquo; Previous</span>
-                <span className="current">1</span>
-                <a href="#page-2">2</a>
-                <a href="#page-3">3</a>
-                <a href="#page-4">4</a>
-                <span>...</span>
-                <a href="#page-9">9</a>
-                <a href="#page-2">Next &laquo;</a>
-              </div>
-          </section>
+            <div className="pagination">
+              <span className="disabled">&laquo; Previous</span>
+              <span className="current">1</span>
+              <a href="#page-2">2</a>
+              <a href="#page-3">3</a>
+              <a href="#page-4">4</a>
+              <span>...</span>
+              <a href="#page-9">9</a>
+              <a href="#page-2">Next &laquo;</a>
+            </div>
+        
         </main>
 
         <aside className="right-sidebar-container">

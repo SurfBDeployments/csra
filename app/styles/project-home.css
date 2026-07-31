@@ -204,22 +204,36 @@ a.searchon:hover {
 
 /* Pagination */
 .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Force children to stay horizontal inline-flex items */
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 0.95em;
+    white-space: nowrap; /* Prevents text from wrapping vertically */
+}
+.pagination {
   display: flex;
   justify-content: center;
   gap: 5px;
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid #eee;
-}
-
-.pagination a,
-.pagination span {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #0066cc;
-  font-size: 875em;
 }
 
 .pagination a:hover {
