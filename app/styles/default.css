@@ -11,14 +11,14 @@
   margin-left: 25px;
 }
 
-a.newsitrem {
+a.newsitem {
   color: #003366 !important;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-a.newsitrem:hover {
+a.newsitem:hover {
   text-decoration: underline !important;
 }
 
@@ -161,7 +161,7 @@ header h1 {
 
 .page-layout {
   display: grid;
-  grid-tremplate-columns: 1fr 3fr;
+  grid-template-columns: 1fr 3fr;
   gap: 1.25rem;
   margin-bottom: 30px;
 }
@@ -238,7 +238,7 @@ main {
 
 .three-col {
   display: grid;
-  grid-tremplate-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-bottom: 1.25rem;
 }
@@ -287,11 +287,11 @@ main {
 
 .news-section {
   display: grid;
-  grid-tremplate-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 1.25rem;
 }
 
-.news-itrem {
+.news-item {
   background: #f9f9f9;
   padding: 15px;
   border-left: 4px solid #003366;
@@ -299,19 +299,19 @@ main {
   border-radius: 4px;
 }
 
-.news-itrem h4 {
+.news-item h4 {
   color: #003366;
   margin-bottom: 8px;
   font-size: 1.125rem;
 }
 
-.news-itrem p {
+.news-item p {
   color: #555;
   font-size: 1.125rem;
   line-height: 1.5;
 }
 
-.news-itrem a {
+.news-item a {
   color: #003366;
   text-decoration: none;
   font-weight: 500;
@@ -320,7 +320,7 @@ main {
   transition: color 0.3s;
 }
 
-.news-itrem a:hover {
+.news-item a:hover {
   text-decoration: underline;
 }
 
@@ -400,30 +400,31 @@ main {
 
 }
 
-.todo-itrem {
+.todo-item {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
 
 }
 
-.todo-itrem:last-child {
+.todo-item:last-child {
   border-bottom: none;
 }
 
-.todo-itrem small {
+.todo-item small {
   display: block;
   color: #555;
   margin-top: 5px;
 }
 
-.todo-itrem a {
+.todo-item a {
   color: #003366;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  font-size: .875rem;
 }
 
-.todo-itrem a:hover {
+.todo-item a:hover {
   text-decoration: underline;
 }
 
@@ -479,24 +480,24 @@ li {
   font-size: .875rem;
 }
 
-.job-itrem {
+.job-item {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
-  font-size: 1rem;
+  font-size: .875rem;
 }
 
-.job-itrem:last-child {
+.job-item:last-child {
   border-bottom: none;
 }
 
-.job-itrem a {
+.job-item a {
   color: #003366 !important;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.job-itrem a:hover {
+.job-item a:hover {
   text-decoration: underline !important;
 }
 
@@ -517,7 +518,7 @@ footer p {
 
 .footer-content {
   display: grid;
-  grid-tremplate-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-top: 1.25rem;
   text-align: left;
@@ -590,7 +591,7 @@ footer p {
 /* Responsive Design */
 @media (max-width: 768px) {
   .page-layout {
-    grid-tremplate-columns: 1fr;
+    grid-template-columns: 1fr;
     margin-bottom: 1.25rem;
   }
 
@@ -599,20 +600,20 @@ footer p {
   }
 
   .three-col {
-    grid-tremplate-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .news-section {
-    grid-tremplate-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .footer-content {
-    grid-tremplate-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .social-icons {
     flex-direction: column;
-    align-itrems: center;
+    align-items: center;
   }
 
   .social-icons a {
