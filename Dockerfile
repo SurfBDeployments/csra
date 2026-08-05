@@ -1,24 +1,24 @@
-FROM node:26-alpine3.23 AS development-dependencies-env
-COPY . /app
+# Stage 1: Build the React application
+FROM node:20-alpine AS builder
 WORKDIR /app
+
+# Copy package management files to leverage layer caching
+COPY package*.json ./
 RUN npm ci
 
-FROM node:26-alpine3.23 AS production-dependencies-env
-COPY ./package.json package-lock.json /app/
-WORKDIR /app
-RUN npm ci --omit=dev
-
-FROM node:26-alpine3.23 AS build-env
-COPY . /app/
-COPY --from=development-dependencies-env /app/node_modules /app/node_modules
-WORKDIR /app
+# Copy the rest of the application files and compile
+COPY . .
 RUN npm run build
 
+# Stage 2: Serve assets with Nginx
+FROM nginx:alpine
 
-FROM node:26-alpine3.23
-COPY ./package.json package-lock.json /app/
-COPY --from=production-dependencies-env /app/node_modules /app/node_modules
-COPY --from=build-env /app/build /app/build
-WORKDIR /app
-CMD ["npm", "run", "start"]
-Test your Dockerfile by building the image and running a container to ensure everything works as expected.
+# Copy our custom routing rules config over the default Nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy production build static files from the builder stage
+COPY --from=builder /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

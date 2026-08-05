@@ -94,9 +94,10 @@ npm start
 
 ### Build and run locally
 
+
 ```bash
-docker build -t csra-modern .
-docker run -p 3000:3000 csra-modern
+docker build -t csra .
+docker run -p 3000:3000 csra
 ```
 
 ### Deploy to GCP Cloud Run

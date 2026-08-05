@@ -26,7 +26,7 @@ export default function MediaControlCard() {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent>
           <Typography variant="subtitle1" component="div" sx={{ color: 'text.secondary' }}>
-            <h3>Featured Video: SRA Get Covered</h3>
+            <h3>Featured Video: CSRA Get Covered</h3>
             <p>Congratulations to our <strong>Affordable Care Act program team</strong>...</p>
           </Typography>
         </CardContent>

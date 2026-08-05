@@ -197,6 +197,7 @@ function HomePage() {
           <main>
             {/* Featured Content Section */}
             <section className="featured-section">
+              <h1>Excellence in Innovation</h1>
               <h2>Featured Content</h2>
               <div className="three-col">
                 {featuredBoxes.map((box) => (
@@ -225,7 +226,7 @@ function HomePage() {
               <div className="news-section">
                 <div>
                   <div className="news-item">
-                    <h4>Company Announcements</h4>
+                    <h3>Company Announcements</h3>
                     <p>
                       Stay up to date with the latest CSRA announcements, policy updates, and important company information. Check back regularly for updates.
                     </p>
