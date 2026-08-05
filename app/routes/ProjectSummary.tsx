@@ -75,7 +75,7 @@ const ProjectSummary: React.FC = () => {
 
           <article>
 
-            <h2>Search Projects</h2>
+            <h3>Search Projects</h3>
             <p style={{ fontWeight: 'bold' }}>Enter a project name (or partial project name) to find matching projects and hit enter.</p>
 
             <div className="search-form-container">

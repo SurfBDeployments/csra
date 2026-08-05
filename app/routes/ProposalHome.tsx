@@ -53,7 +53,7 @@ const ProposalHome: React.FC = () => {
 
           <article>
         
-            <h2>Search Proposals</h2>
+            <h3>Search Proposals</h3>
             <p style={{fontWeight:'bold'}}>Enter a proposal name (or partial proposal name) to find matching Proposals and hit enter.</p>
 
             <div className="search-form-container">

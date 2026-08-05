@@ -200,7 +200,7 @@ const ProposalResults: React.FC = () => {
             </div>
 
             <div className="search-results">
-              <h2 className="zone-title">Proposal Search Results</h2>
+              <h3 className="zone-title">Proposal Search Results</h3>
               <p>Your search results will be displayed in this area.</p>
 
               <div className="result-item">
@@ -247,19 +247,19 @@ const ProposalResults: React.FC = () => {
                 <div className="result-url">/Projects/standards/data-analytics-gold-standard.pdf</div>
               </div>
             </div>
-            </section>
+          </section>
 
-            <div className="pagination">
-              <span className="disabled">&laquo; Previous</span>
-              <span className="current">1</span>
-              <a href="#page-2">2</a>
-              <a href="#page-3">3</a>
-              <a href="#page-4">4</a>
-              <span>...</span>
-              <a href="#page-9">9</a>
-              <a href="#page-2">Next &laquo;</a>
-            </div>
-        
+          <div className="pagination">
+            <span className="disabled">&laquo; Previous</span>
+            <span className="current">1</span>
+            <a href="#page-2">2</a>
+            <a href="#page-3">3</a>
+            <a href="#page-4">4</a>
+            <span>...</span>
+            <a href="#page-9">9</a>
+            <a href="#page-2">Next &laquo;</a>
+          </div>
+
         </main>
 
         <aside className="right-sidebar-container">
@@ -279,9 +279,9 @@ const ProposalResults: React.FC = () => {
             <div className="refinement-panel">
               <h2 className="zone-title">Proposal Tools</h2>
               <ul>
-                <li className="zone-title"><a href="#">GovWin IQ</a></li>
-                <li className="zone-title"><a href="#">GovWin CRM</a></li>
-                <li className="zone-title"><a href="#">Salesforce</a></li>
+                <li ><a href="#">GovWin IQ</a></li>
+                <li ><a href="#">GovWin CRM</a></li>
+                <li ><a href="#">Salesforce</a></li>
               </ul>
             </div>
           </div>

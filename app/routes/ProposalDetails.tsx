@@ -80,7 +80,7 @@ const ProposalHome: React.FC = () => {
               <h2 className='h2proj'>Proposal Summary Tool</h2>
 
               <div className="project-header">
-                <h2>{selectedProposal.name}</h2>
+               
                 <div className="identifier">Project ID: {selectedProposal.proposalId}</div>
                 <div className="date-range">
                   <strong>Period of Performance:</strong> {selectedProposal.startDate} - {selectedProposal.endDate}

@@ -94,7 +94,7 @@ const ProjectResults: React.FC = () => {
 
           <article>
 
-            <h2>Search Projects</h2>
+            <h3>Search Projects</h3>
             <p style={{ fontWeight: 'bold' }}>Enter a project name (or partial project name) to find matching projects and hit enter.</p>
             <div className="search-form-container">
               <form id="ProjectSearchForm" method="get" action="/search/">
@@ -201,7 +201,7 @@ const ProjectResults: React.FC = () => {
             </div>
 
             <div className="search-results">
-              <h2 className="zone-title">Project Search Results</h2>
+              <h3 className="zone-title">Project Search Results</h3>
               <p>Your search results will be displayed in this area.</p>
 
               <div className="result-item">

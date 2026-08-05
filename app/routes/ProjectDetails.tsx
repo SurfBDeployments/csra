@@ -61,7 +61,7 @@ const ProjectHome: React.FC = () => {
 
 
       <div className="projects-header container">
-         <h2 className='h2proj'>Project Summary Tool Center</h2>
+        <h2 className='h2proj'>Project Summary Tool Center</h2>
         <nav aria-label="Main navigation">
           <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className='searchon'>Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
         </nav>
@@ -77,10 +77,10 @@ const ProjectHome: React.FC = () => {
 
           {selectedProject && (
             <article>
-              <h2>Project Summary Tool</h2>
+
 
               <div className="project-header">
-                <h2>{selectedProject.name}</h2>
+                <h3>{selectedProject.name}</h3>
                 <div className="identifier">Project ID: {selectedProject.projectId}</div>
                 <div className="date-range">
                   <strong>Period of Performance:</strong> {selectedProject.startDate} - {selectedProject.endDate}
