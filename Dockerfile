@@ -8,21 +8,21 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Stage 2: Nginx server stage
-FROM nginx:alpine
+# Stage 2: Production Server Runtime
+FROM node:20-alpine AS runner
+WORKDIR /app
 
-# Completely clear default Nginx configuration and landing files
-RUN rm -rf /etc/nginx/conf.d/* /usr/share/nginx/html/*
+ENV NODE_ENV=production
+ENV PORT=8080
 
-# Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy package management files and install production dependencies only
+COPY package*.json ./
+RUN npm ci --only=production
 
-# Copy build artifacts (Change 'build' to 'dist' if using Vite)
-COPY --from=builder /app/build /usr/share/nginx/html
-
-# Grant read access to all users and execution access to directories
-RUN chmod -R 755 /usr/share/nginx/html
+# Copy the generated build output from the builder stage
+COPY --from=builder /app/build ./build
 
 EXPOSE 8080
 
-CMD ["nginx", "-g", "daemon off;"]
+# Starts @react-router/serve on port 8080
+CMD ["npm", "run", "start"]
