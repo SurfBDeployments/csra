@@ -22,16 +22,13 @@ a.searchlinks:hover {
   text-align: left;
   color: #00458A !important;
   font-family: inherit;
- 
+  font-size: .875rem;
   padding-bottom: 20px;
   font-weight: 700;
 }
 
 a.searchon:hover {
-
   color: #003366 !important;
-
-
 }
 
 .page-container {
@@ -255,7 +252,7 @@ a.searchon:hover {
 
 .search-info {
   color: #454545;
- 
+
 }
 
 /* Sidebar */
