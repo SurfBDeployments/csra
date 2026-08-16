@@ -1,24 +1,28 @@
-# Stage 1: Build the React application
+# Stage 1: Build stage
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Copy package management files to leverage layer caching
 COPY package*.json ./
 RUN npm ci
 
-# Copy the rest of the application files and compile
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve assets with Nginx
+# Stage 2: Nginx server stage
 FROM nginx:alpine
 
-# Copy our custom routing rules config over the default Nginx config
+# Completely clear default Nginx configuration and landing files
+RUN rm -rf /etc/nginx/conf.d/* /usr/share/nginx/html/*
+
+# Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy production build static files from the builder stage
+# Copy build artifacts (Change 'build' to 'dist' if using Vite)
 COPY --from=builder /app/build /usr/share/nginx/html
 
-EXPOSE 80
+# Grant read access to all users and execution access to directories
+RUN chmod -R 755 /usr/share/nginx/html
+
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
