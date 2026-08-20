@@ -53,7 +53,7 @@ function HomePage() {
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
     { label: 'Winning Work', href: '#' },
-    { label: 'Project Execution', href: '/projectsummary' },
+    { label: 'Projects & Proposals', href: '/projectsummary' },
     { label: 'Collab & Community', href: '#' },
     { label: 'Benefits & Comp', href: '#' },
     { label: 'Careers', href: '#' },

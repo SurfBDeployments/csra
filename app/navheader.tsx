@@ -12,7 +12,7 @@ const NavHeader = () => {
     { label: 'Our Org', href: '#', id: 'our-org' },
     { label: 'What We Do', href: '#', id: 'what-we-do' },
     { label: 'Winning Work', href: '#', id: 'winning-work' },
-    { label: 'Project Execution', href: '/projectsummary', id: 'project-execution' },
+    { label: 'Projects & Proposals', href: '/projectsummary', id: 'project-execution' },
     { label: 'Collab & Community', href: '#', id: 'collab-community' },
     { label: 'Benefits & Comp', href: '#', id: 'benefits-comp' },
     { label: 'Careers', href: '#', id: 'careers' },
