@@ -48,7 +48,7 @@ function HomePage() {
   function handleClick() {
     setlikes(likes + 1);
   }
- 
+
   const topNavLinks: NavLink[] = [
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
@@ -71,17 +71,18 @@ function HomePage() {
 
   const featuredBoxes: FeaturedBox[] = [
     {
-      title: 'Collaboration & Community',
-
-      image: '/CollaborateBanner400.jpg',
+      title: 'What We Do',
+      image: '/whatwedomain400.jpg',
       links: [
-        { label: 'Best Teams at CSRA', href: '/collab/bestteams' },
-        { label: "Bill's Blog", href: 'https://spark.CSRA.com/' },
-        { label: 'Communities of Practice', href: '/collab/cops' },
-        { label: 'Employee Resource Groups', href: '/collab/erg' },
-        { label: 'IS THERE', href: '/collab/isthere' },
-        { label: 'CSRA Connects', href: '/collab/CSRA-connects' },
-        { label: 'Spark', href: 'https://spark.CSRA.com/' },
+        { label: 'Business Intelligence / Big Data', href: '/whatwedo/bibd' },
+        { label: 'Cloud Computing', href: '/whatwedo/cloud' },
+        { label: 'Cyber Security', href: '/whatwedo/cybersec' },
+        { label: 'Engineering & Logistics', href: '/whatwedo/englog' },
+        { label: 'Infrastructure Services', href: '/whatwedo/is' },
+        { label: 'Management & Consulting', href: '/whatwedo/mgmtcons' },
+        { label: 'Mobile Solutions', href: '/whatwedo/mobilesol' },
+        { label: 'Research & Analysis', href: '/whatwedo/research' },
+        { label: 'Software & System Development', href: '/whatwedo/softsysdev' },
       ],
     },
     {
@@ -97,20 +98,22 @@ function HomePage() {
       ],
     },
     {
-      title: 'What We Do',
-      image: '/whatwedomain400.jpg',
+      title: 'Collaboration & Community',
+
+      image: '/CollaborateBanner400.jpg',
       links: [
-        { label: 'Business Intelligence / Big Data', href: '/whatwedo/bibd' },
-        { label: 'Cloud Computing', href: '/whatwedo/cloud' },
-        { label: 'Cyber Security', href: '/whatwedo/cybersec' },
-        { label: 'Engineering & Logistics', href: '/whatwedo/englog' },
-        { label: 'Infrastructure Services', href: '/whatwedo/is' },
-        { label: 'Management & Consulting', href: '/whatwedo/mgmtcons' },
-        { label: 'Mobile Solutions', href: '/whatwedo/mobilesol' },
-        { label: 'Research & Analysis', href: '/whatwedo/research' },
-        { label: 'Software & System Development', href: '/whatwedo/softsysdev' },
+        { label: 'Best Teams at CSRA', href: '/collab/bestteams' },
+        { label: "Bill's Blog", href: 'https://spark.CSRA.com/' },
+        { label: 'Communities of Practice', href: '/collab/cops' },
+        { label: 'Employee Resource Groups', href: '/collab/erg' },
+        { label: 'IS THERE', href: '/collab/isthere' },
+        { label: 'CSRA Connects', href: '/collab/CSRA-connects' },
+        { label: 'Spark', href: 'https://spark.CSRA.com/' },
       ],
     },
+
+
+
   ];
 
   return (
