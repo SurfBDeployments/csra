@@ -80,7 +80,6 @@ function HomePage() {
         { label: 'Communities of Practice', href: '/collab/cops' },
         { label: 'Employee Resource Groups', href: '/collab/erg' },
         { label: 'IS THERE', href: '/collab/isthere' },
-        { label: 'Lync', href: '/support/infotech/pe/lync' },
         { label: 'CSRA Connects', href: '/collab/CSRA-connects' },
         { label: 'Spark', href: 'https://spark.CSRA.com/' },
       ],

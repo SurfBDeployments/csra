@@ -159,7 +159,7 @@ const ProposalHome: React.FC = () => {
           <div className="sidebar right-sidebar">
             <div className="refinement-panel">
               <h2 className="zone-title">Proposal Contacts</h2>
-              <p><span className="search-info">For questions or access to restricted materials, contact: <a href="mailto:ProposalSupport@sra.com">ProposalSupport@sra.com</a></span></p>
+              <p><span className="search-info">For questions or access to restricted materials, contact: <a href="mailto:ProposalSupport@csra.com">ProposalSupport@csra.com</a></span></p>
             </div>
           </div>
           <div className="sidebar right-sidebar">

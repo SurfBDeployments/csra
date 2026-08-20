@@ -82,12 +82,12 @@ a.searchon:hover {
 
 .sidebar.right-sidebar {
   margin-right: 10px;
+  display: contents;
 }
 
 .refinement-panel h2 {
   font-size: 1.1rem;
   color: #333;
-  margin-bottom: 15px;
 
 }
 
@@ -632,7 +632,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .projects-sidebar {
+  .projects-sidebar, .right-sidebar-container {
     display: none;
   }
 

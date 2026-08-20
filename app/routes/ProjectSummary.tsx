@@ -50,7 +50,7 @@ const ProjectSummary: React.FC = () => {
           <div className="sidebar right-sidebar">
             <div className="refinement-panel">
               <h2 className="zone-title">Project Contacts</h2>
-              <p><span className="search-info">For questions or access to restricted materials, contact: <a href="mailto:ProjectSupport@sra.com">ProjectSupport@sra.com</a></span></p>
+              <p><span className="search-info">For questions or access to restricted materials, contact: <a href="mailto:ProjectSupport@csra.com">ProjectSupport@csra.com</a></span></p>
             </div>
           </div>
           <div className="sidebar right-sidebar">

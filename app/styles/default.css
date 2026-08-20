@@ -126,7 +126,7 @@ footer a {
 }
 
 body {
-  font-size: 1rem;
+
   font-family: Helvetica, sans-serif;
   color: #333;
   background-color: #f5f5f5;
@@ -595,9 +595,17 @@ footer p {
     margin-bottom: 1.25rem;
   }
 
-  aside {
+  aside, aside.righthome-sidebar-container {
     display: none;
   }
+main.projects-main {
+  display: block!important;
+  width: 100%;
+}
+.projectshome-container {
+  display: block!important;
+   width: 100%!important;
+}
 
   .three-col {
     grid-template-columns: 1fr;
@@ -650,6 +658,8 @@ footer p {
 @media (max-width: 480px) {
   .container {
     padding: 10px;
+    display: grid;
+    max-width: fit-content;
   }
 
   header h1 {
