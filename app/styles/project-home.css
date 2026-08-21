@@ -78,6 +78,8 @@ a.searchon:hover {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  left: 1em;
+  position: relative;
 }
 
 .sidebar.right-sidebar {
@@ -632,7 +634,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .projects-sidebar, .right-sidebar-container {
+  .projects-sidebar,
+  .right-sidebar-container {
     display: none;
   }
 
