@@ -24,8 +24,9 @@ const NavHeader = () => {
       {/* Header */}
       <header>
         <div className="container mx-auto py-4">
+         
             <a href="/" className="logo">
-          <img src="/csra-banner.png" alt="CSRA Banner" />
+          <img src="/csra-banner.png" alt="CSRA Banner" style={{width: 'auto', maxWidth:'100%'}}/>
           </a>
           <div className="search">
             <input
