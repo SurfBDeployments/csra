@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/project-home.css';
 import '../styles/default.css';
-
+import PropHeader from '~/propheader';
 import Footer from '../footer';
 import NavHeader from '../navheader';
 
@@ -57,30 +57,30 @@ const ProposalHome: React.FC = () => {
     <>
       <NavHeader />
 
-      {/* Main Container */}
-
-
       <div className="projects-header container">
-        <h2>Project Summary Tool Center</h2>
-        <nav aria-label="Main navigation">
-          <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className='searchon'>Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
-        </nav>
+
+        <h2 className='h2proj'>Proposals Summary Results</h2>
+
+        <p className="search-info">This search looks for matches in the Proposals repository.</p>
+
+        <PropHeader />
       </div>
-
-
 
       <div className="projectshome-container">
 
-
         <main className="projects-main">
-
 
           {selectedProposal && (
             <article>
-              <h2 className='h2proj'>Proposal Summary Tool</h2>
+
+              <h2 className='h2proj'>Proposals Summary Tool Center</h2>
+
+              <p className="search-info">This search looks for matches in the Proposals repository.</p>
+
+              <PropHeader />
 
               <div className="project-header">
-               
+
                 <div className="identifier">Project ID: {selectedProposal.proposalId}</div>
                 <div className="date-range">
                   <strong>Period of Performance:</strong> {selectedProposal.startDate} - {selectedProposal.endDate}

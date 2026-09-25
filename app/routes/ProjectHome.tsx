@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/project-home.css';
 import '../styles/default.css';
-
+import ProjHeader from '~/projheader';
 import Footer from '../footer';
 import NavHeader from '../navheader';
 
@@ -34,23 +34,23 @@ const ProjectHome: React.FC = () => {
   return (
     <>
       <NavHeader />
-
+      <ProjHeader />
       <div className="projects-header container">
-         <h2 className='h2proj'>Project Summary Tool Center</h2>
+        <h2 className='h2proj'>Project Summary Tool Center</h2>
         <p className="search-info">This search looks for matches in the Project repository.</p>
         <nav aria-label="Main navigation">
-         <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="/projectsummary" className='searchon'>Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary">Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
+          <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="/projectsummary" className='searchon'>Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary">Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
         </nav>
       </div>
 
       <div className="projectshome-container">
-     
+
 
         <main className="projects-main">
           <div className="breadcrumb"><a href="/">&laquo; Back to Home</a></div>
 
           <article>
-         
+
             <h2>Search Projects</h2>
             <p style={{ fontWeight: 'bold' }}>Enter a project name (or partial project name) to find matching projects and hit enter.</p>
             <div className="search-form-container">
@@ -144,7 +144,7 @@ const ProjectHome: React.FC = () => {
             </div>
           </article>
 
-       
+
         </main>
 
         <aside className="righthome-sidebar-container">

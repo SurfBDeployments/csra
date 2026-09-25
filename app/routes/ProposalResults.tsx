@@ -4,6 +4,7 @@ import '../styles/default.css';
 
 import Footer from '../footer';
 import NavHeader from '../navheader';
+import PropHeader from '~/propheader';
 
 interface ProjectItem {
   id: string;
@@ -35,14 +36,13 @@ const ProposalResults: React.FC = () => {
   return (
     <>
       <NavHeader />
-
       <div className="projects-header container">
 
-        <h2 className='h2proj'>Proposal Summary Results</h2>
-        <p className="search-info">This search looks for matches in the Proposal repository.</p>
-        <nav aria-label="Main navigation">
-          <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal" className='searchon'>Proposals</a> | <a href="/projectsummary">Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
-        </nav>
+        <h2 className='h2proj'>Proposals Summary Results</h2>
+
+        <p className="search-info">This search looks for matches in the Proposals repository.</p>
+
+        <PropHeader />
       </div>
 
       <div className="projects-container">

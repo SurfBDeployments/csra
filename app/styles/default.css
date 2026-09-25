@@ -664,7 +664,7 @@ footer p {
   .container {
     padding: 10px;
     display: grid;
-    max-width: inherit;
+
   }
 
   body {
@@ -693,8 +693,14 @@ footer p {
     margin: 5px;
   }
 
+  .topnav a:active {
+    font-size: 1rem;
+    text-decoration: underline;
+    margin: 5px;
+  }
+
   .topnav a:hover {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: #5c9ed3 !important;
     margin: 5px;
   }
