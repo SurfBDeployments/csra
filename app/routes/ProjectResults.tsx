@@ -36,7 +36,7 @@ const ProjectResults: React.FC = () => {
 
       <div className="projects-header container">
 
-         <h2 className='h2proj'>Project Summary Results</h2>
+        <h2 className='h2proj'>Project Summary Results</h2>
         <p className="search-info">This search looks for matches in the Project repository.</p>
         <nav aria-label="Main navigation">
           <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className='searchon'>Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
@@ -92,98 +92,103 @@ const ProjectResults: React.FC = () => {
         <main className="projects-main">
 
 
-          <article>
-
+          <article className="search-article">
             <h3>Search Projects</h3>
-            <p style={{ fontWeight: 'bold' }}>Enter a project name (or partial project name) to find matching projects and hit enter.</p>
+            <p className="search-description">
+              Enter a project name (or partial project name) to find matching projects and hit enter.
+            </p>
+
             <div className="search-form-container">
               <form id="ProjectSearchForm" method="get" action="/search/">
-                <table className="people-search-form">
-                  <tbody>
-                    <tr>
-                      <th className="label">Keyword(s):</th>
-                      <th className="inlinefilter">
-                        <input type="text" id="keywords" name="keywords" placeholder="Enter keywords" />
-                      </th>
-                      <th className="label" style={{ verticalAlign: 'middle', textAlign: 'left', width: '100%' }}>
-                        <input type="checkbox" name="checkbox" id="checkbox" />
-                        <label htmlFor="checkbox">Match any Keyword</label>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td />
-                      <td />
-                      <td className="label" style={{ verticalAlign: 'middle', textAlign: 'left', width: '100%' }}>
-                        <input type="checkbox" name="checkbox2" id="checkbox2" />
-                        Match All Keywords
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colSpan={4}>
-                        <hr />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="label">Submitted within the last:</td>
-                      <td className="inlinefilter">
-                        <select id="submittedWithin" name="submittedWithin">
-                          <option value="">Select timeframe</option>
-                          <option value="1">last year</option>
-                          <option value="2">last 2 years</option>
-                          <option value="3">last 3 years</option>
-                        </select>
-                      </td>
-                      <td className="label">
-                        <a href="https://corpteams.sranet.sra.com/search/Documents/Capability%20Terms.xlsx" target="_blank" rel="noreferrer">Capabilities:</a>
-                      </td>
-                      <td className="inlinefilter">
-                        <span id="capabilitiesExperienceInput">
-                          <input type="text" id="capabilities" name="capabilities" placeholder="Enter capabilities" />
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="label">Project Artifacts:</td>
-                      <td className="inlinefilter" style={{ verticalAlign: 'top' }}>
-                        <select id="ProjectArtifacts" name="ProjectArtifacts" multiple>
-                          <option value="2f9bf6c8-0be6-41e6-94c2-9ae23d024c67">Full Project</option>
-                          <option value="d705534a-3bd5-4eb8-b21d-7d3851e5ae1">Gold Standard</option>
-                          <option value="3050a2aa-2924-4e14-a501-fcf1428d9941">Oral Presentation</option>
-                          <option value="a85f5364-b69c-4b5c-aeeb-1d99ea573bcb">Past Performance</option>
-                          <option value="3050a2aa-2924-4e14-a501-fcf1428d9941">Project Graphic</option>
-                          <option value="57ccb577-e226-4c74-acf8-64d2045bd36c">RFI Response</option>
-                        </select>
-                      </td>
-                      <td className="label">Tools:</td>
-                      <td className="inlinefilter" style={{ width: '250px' }}>
-                        <span id="toolsInput">
-                          <input type="text" id="tools" name="tools" placeholder="Enter tools" />
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="label">GovWin ID:</td>
-                      <td className="inlinefilter">
-                        <span id="certificationsInput">
-                          <input type="text" id="govwinId" name="govwinId" placeholder="Enter GovWin ID" />
-                        </span>
-                      </td>
-                      <td className="label">
-                        <a href="https://corpteams.sranet.sra.com/search/Documents/Customers Terms.xlsx" target="_blank" rel="noreferrer">Customers:</a>
-                      </td>
-                      <td className="inlinefilter" style={{ width: '250px' }}>
-                        <span id="customerExperienceInput">
-                          <input type="text" id="customers" name="customers" placeholder="Enter customers" />
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                  <button type="submit" className="button shadow-md"><a href="/projectresults">Search</a></button>
-                  <button type="reset" className="button">Clear</button>
+
+                {/* Top Section: Keywords & Filters */}
+                <div className="form-grid">
+
+                  {/* Keywords */}
+                  <div className="form-group keyword-group">
+                    <label htmlFor="keywords" className="form-label">Keyword(s):</label>
+                    <input type="text" id="keywords" name="keywords" placeholder="Enter keywords" />
+                  </div>
+
+                  {/* Checkboxes */}
+                  <div className="form-group checkbox-group">
+                    <label className="checkbox-label">
+                      <input type="checkbox" name="checkbox" id="checkbox" />
+                      <span>Match any Keyword</span>
+                    </label>
+                    <label className="checkbox-label">
+                      <input type="checkbox" name="checkbox2" id="checkbox2" />
+                      <span>Match All Keywords</span>
+                    </label>
+                  </div>
 
                 </div>
+
+                <hr className="form-divider" />
+
+                {/* Main Form Inputs Grid */}
+                <div className="form-grid search-fields-grid">
+
+                  {/* Left Column Fields */}
+                  <div className="form-group">
+                    <label htmlFor="submittedWithin" className="form-label">Submitted within the last:</label>
+                    <select id="submittedWithin" name="submittedWithin">
+                      <option value="">Select timeframe</option>
+                      <option value="1">last year</option>
+                      <option value="2">last 2 years</option>
+                      <option value="3">last 3 years</option>
+                    </select>
+                  </div>
+
+                  {/* Right Column Fields (Reordered naturally for mobile stack) */}
+                  <div className="form-group">
+                    <label htmlFor="capabilities" className="form-label">
+
+                      Capabilities:
+
+                    </label>
+                    <input type="text" id="capabilities" name="capabilities" placeholder="Enter capabilities" />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="ProjectArtifacts" className="form-label">Project Artifacts:</label>
+                    <select id="ProjectArtifacts" name="ProjectArtifacts" multiple>
+                      <option value="2f9bf6c8-0be6-41e6-94c2-9ae23d024c67">Full Project</option>
+                      <option value="d705534a-3bd5-4eb8-b21d-7d3851e5ae1e">Gold Standard</option>
+                      <option value="3050a2aa-2924-4e14-a501-fcf1428d9941">Oral Presentation</option>
+                      <option value="a85f5364-b69c-4b5c-aeeb-1d99ea573bcb">Past Performance</option>
+                      <option value="3050a2aa-2924-4e14-a501-fcf1428d9941">Project Graphic</option>
+                      <option value="57ccb577-e226-4c74-acf8-64d2045bd36c">RFI Response</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="tools" className="form-label">Tools:</label>
+                    <input type="text" id="tools" name="tools" placeholder="Enter tools" />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="govwinId" className="form-label">GovWin ID:</label>
+                    <input type="text" id="govwinId" name="govwinId" placeholder="Enter GovWin ID" />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="customers" className="form-label">
+
+                      Customers:
+
+                    </label>
+                    <input type="text" id="customers" name="customers" placeholder="Enter customers" />
+                  </div>
+
+                </div>
+
+                {/* Action Buttons */}
+                <div className="form-actions">
+                  <button type="submit" className="button shadow-md"><a href="/projectresults">Search</a></button>
+                  <button type="reset" className="button shadow-md">Clear</button>
+                </div>
+
               </form>
             </div>
           </article>

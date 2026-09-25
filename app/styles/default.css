@@ -668,7 +668,8 @@ footer p {
   }
 
   body {
-    width: auto;
+    width: 100%;
+    display: grid;
   }
 
   header h1 {
