@@ -36,11 +36,11 @@ const ProjectSummary: React.FC = () => {
       <NavHeader />
 
       <div className="projects-header container">
-         <h2 className='h2proj'>Projects Summary Tool Center</h2>
-      
+        <h2 className='h2proj'>Projects Summary Tool Center</h2>
+
         <p className="search-info">This search looks for matches in the Project repository.</p>
         <nav aria-label="Main navigation">
-      <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className="searchon">Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
+          <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className="searchon">Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
         </nav>
       </div>
 

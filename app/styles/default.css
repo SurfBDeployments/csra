@@ -543,7 +543,7 @@ footer p {
 .tocheader a {
   font-weight: bold;
   margin-bottom: 10px;
-  font-size: 1.1rem!important;
+  font-size: 1.1rem !important;
 }
 
 .in-focus {
@@ -597,17 +597,20 @@ footer p {
     margin-bottom: 1.25rem;
   }
 
-  aside, aside.righthome-sidebar-container {
+  aside,
+  aside.righthome-sidebar-container {
     display: none;
   }
-main.projects-main {
-  display: block!important;
-  width: 100%;
-}
-.projectshome-container {
-  display: block!important;
-   width: 100%!important;
-}
+
+  main.projects-main {
+    display: block !important;
+    width: 100%;
+  }
+
+  .projectshome-container {
+    display: block !important;
+    width: 100% !important;
+  }
 
   .three-col {
     grid-template-columns: 1fr;
@@ -663,9 +666,11 @@ main.projects-main {
     display: grid;
     max-width: inherit;
   }
-body {
-  width: fit-content;
-}
+
+  body {
+    width: inherit;
+  }
+
   header h1 {
     font-size: 1.25rem;
   }
@@ -683,7 +688,7 @@ body {
   }
 
   .topnav a {
-    font-size: 1.125rem;
+    font-size: 1rem;
     margin: 5px;
   }
 

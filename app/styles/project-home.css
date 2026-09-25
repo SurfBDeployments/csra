@@ -168,6 +168,15 @@ a.searchon:hover {
   text-decoration: underline;
 }
 
+.logo-header {
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 1.25rem;
+  max-width: 1400px;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
 .result-description {
   color: #555;
   font-size: 0.95em;
@@ -632,6 +641,13 @@ footer {
 @media (max-width: 768px) {
   .projects-container {
     grid-template-columns: 1fr;
+  }
+
+  .projects-header,
+  .projects-header .container {
+    padding: .5rem 2rem !important;
+    margin: 1rem auto !important;
+    left: 0rem;
   }
 
   .projects-sidebar,
