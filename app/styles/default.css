@@ -668,7 +668,7 @@ footer p {
   }
 
   body {
-    width: inherit;
+    width: auto;
   }
 
   header h1 {
