@@ -73,11 +73,7 @@ const ProposalHome: React.FC = () => {
           {selectedProposal && (
             <article>
 
-              <h2 className='h2proj'>Proposals Summary Tool Center</h2>
 
-              <p className="search-info">This search looks for matches in the Proposals repository.</p>
-
-              <PropHeader />
 
               <div className="project-header">
 
