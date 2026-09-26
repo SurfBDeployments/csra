@@ -61,7 +61,7 @@ const ProjectHome: React.FC = () => {
 
 
       <div className="projects-header container">
-        <h2 className='h2proj'>Project Summary Tool Center</h2>
+        <h2 className='h2proj'>Projects Center</h2>
         <ProjHeader />
       </div>
 

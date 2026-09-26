@@ -41,7 +41,9 @@ const ProjectResults: React.FC = () => {
         <ProjHeader />
       </div>
 
-      <div className="projects-container">
+      {/* <div className="projects-container"> */}
+
+      <div className="projectshome-container">
         <aside className="projects-sidebar">
           <div className="refinement-panel">
             <h2>Refine Results</h2>
@@ -88,7 +90,6 @@ const ProjectResults: React.FC = () => {
         </aside>
 
         <main className="projects-main">
-
 
           <article className="search-article">
             <h3>Search Projects</h3>
