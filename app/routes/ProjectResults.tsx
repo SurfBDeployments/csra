@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import '../styles/project-home.css';
 import '../styles/default.css';
-import ProjHeader from '~/projheader';
+
 import Footer from '../footer';
 import NavHeader from '../navheader';
+import ProjHeader from '~/propheader';
 
 interface ProjectItem {
   id: string;
@@ -14,10 +15,12 @@ interface ProjectItem {
 const sampleProjects: ProjectItem[] = [
   { id: '1', name: 'Client Portal Development Initiative', projectId: 'PROJ-2024-001' },
   { id: '2', name: 'Quarterly Results Presentation', projectId: 'PROJ-2024-002' },
-  { id: '3', name: 'Customer Migration Project', projectId: 'PROJ-2024-003' }
+  { id: '3', name: 'Customer Migration Project', projectId: 'PROJ-2024-003' },
+  { id: '4', name: 'Rad Rapid Prototype Project', projectId: 'PROJ-2025-004' }
 ];
 
 const ProjectResults: React.FC = () => {
+  const [query, setQuery] = useState('');
   const [results, setResults] = useState<ProjectItem[]>([]);
 
   const handleSearch = (q: string) => {
@@ -33,17 +36,16 @@ const ProjectResults: React.FC = () => {
   return (
     <>
       <NavHeader />
-
       <div className="projects-header container">
 
-        <h2 className='h2proj'>Project Summary Results</h2>
-        <p className="search-info">This search looks for matches in the Project repository.</p>
+        <h2 className='h2proj'>Projects Summary Results</h2>
+
+        <p className="search-info">This search looks for matches in the Projects repository.</p>
+
         <ProjHeader />
       </div>
 
-      {/* <div className="projects-container"> */}
-
-      <div className="projectshome-container">
+      <div className="projects-container">
         <aside className="projects-sidebar">
           <div className="refinement-panel">
             <h2>Refine Results</h2>
@@ -91,14 +93,15 @@ const ProjectResults: React.FC = () => {
 
         <main className="projects-main">
 
+
           <article className="search-article">
             <h3>Search Projects</h3>
             <p className="search-description">
-              Enter a project name (or partial project name) to find matching projects and hit enter.
+              Enter a Project name (or partial Project name) to find matching Project and hit enter.
             </p>
 
             <div className="search-form-container">
-              <form id="ProjectSearchForm" method="get" action="/search/">
+              <form id="ProjectearchForm" method="get" action="/search/">
 
                 {/* Top Section: Keywords & Filters */}
                 <div className="form-grid">
@@ -184,7 +187,7 @@ const ProjectResults: React.FC = () => {
 
                 {/* Action Buttons */}
                 <div className="form-actions">
-                  <button type="submit" className="button shadow-md"><a href="/projectresults">Search</a></button>
+                  <button type="submit" className="button shadow-md"><a href="/Projectresults">Search</a></button>
                   <button type="reset" className="button shadow-md">Clear</button>
                 </div>
 
@@ -197,7 +200,7 @@ const ProjectResults: React.FC = () => {
               <div className="results-count">
                 <strong>Showing 1&laquo;10 of 90 results</strong> (0.23 seconds)
               </div>
-              <select className="sort-dropdown" title='Filters'>
+              <select className="sort-dropdown">
                 <option value="relevance">Sort by Relevance</option>
                 <option value="date">Sort by Date Modified</option>
                 <option value="title">Sort by Title</option>
@@ -209,8 +212,8 @@ const ProjectResults: React.FC = () => {
               <p>Your search results will be displayed in this area.</p>
 
               <div className="result-item">
-                <div className="result-title"><a href="">Enterprise Management System - Project Document</a></div>
-                <div className="result-description">This comprehensive Project outlines the design and implementation of an enterprise-level management system for DoD operations. It covers system architecture, cloud infrastructure,security requirements, and deployment strategy.</div>
+                <div className="result-title"><a href="#">Enterprise Management System - Project Document</a></div>
+                <div className="result-description">This comprehensive Project outlines the design and implementation of an enterprise-level management system for DoD operations. It covers system architecture, security requirements, and deployment strategy.</div>
                 <div className="result-metadata">
                   <div className="metadata-item"><span className="metadata-label">Author:</span><span>Software Engineering Team</span></div>
                   <div className="metadata-item"><span className="metadata-label">Date:</span><span>March 15, 2026</span></div>
@@ -220,7 +223,7 @@ const ProjectResults: React.FC = () => {
               </div>
 
               <div className="result-item">
-                <div className="result-title"><a href="/projectdetails">Cloud Infrastructure Implementation - Technical Response</a></div>
+                <div className="result-title"><a href="#">Cloud Infrastructure Implementation - Technical Response</a></div>
                 <div className="result-description">Technical response document addressing government requirements for cloud infrastructure deployment. Includes security assessment, scalability analysis, and cost Projections.</div>
                 <div className="result-metadata">
                   <div className="metadata-item"><span className="metadata-label">Author:</span><span>Infrastructure Team</span></div>
@@ -228,6 +231,17 @@ const ProjectResults: React.FC = () => {
                   <div className="metadata-item"><span className="metadata-label">Size:</span><span>1.8 MB</span></div>
                 </div>
                 <div className="result-url">/Projects/2026/cloud-infrastructure-response.docx</div>
+              </div>
+
+              <div className="result-item">
+                <div className="result-title"><a href="/proposaldetails">AI Platform - Bold Standard</a></div>
+                <div className="result-description">Gold standard Project template for data analytics platforms. Contains best practices, lessons learned, and proven methodologies for similar Projects.</div>
+                <div className="result-metadata">
+                  <div className="metadata-item"><span className="metadata-label">Author:</span><span>Infrastructure Team</span></div>
+                  <div className="metadata-item"><span className="metadata-label">Date:</span><span>February 8, 2026</span></div>
+                  <div className="metadata-item"><span className="metadata-label">Size:</span><span>2.1 MB</span></div>
+                </div>
+                <div className="result-url">/Projects/standards/data-analytics-gold-standard.pdf</div>
               </div>
 
               <div className="result-item">
@@ -241,18 +255,19 @@ const ProjectResults: React.FC = () => {
                 <div className="result-url">/Projects/standards/data-analytics-gold-standard.pdf</div>
               </div>
             </div>
-
-            <div className="pagination">
-              <span className="disabled">&laquo; Previous</span>
-              <span className="current">1</span>
-              <a href="#page-2">2</a>
-              <a href="#page-3">3</a>
-              <a href="#page-4">4</a>
-              <span>...</span>
-              <a href="#page-9">9</a>
-              <a href="#page-2">Next &laquo;</a>
-            </div>
           </section>
+
+          <div className="pagination">
+            <span className="disabled">&laquo; Previous</span>
+            <span className="current">1</span>
+            <a href="#page-2">2</a>
+            <a href="#page-3">3</a>
+            <a href="#page-4">4</a>
+            <span>...</span>
+            <a href="#page-9">9</a>
+            <a href="#page-2">Next &laquo;</a>
+          </div>
+
         </main>
 
         <aside className="right-sidebar-container">
@@ -272,15 +287,14 @@ const ProjectResults: React.FC = () => {
             <div className="refinement-panel">
               <h2 className="zone-title">Project Tools</h2>
               <ul>
-                <li className="zone-title"><a href="#">GovWin IQ</a></li>
-                <li className="zone-title"><a href="#">GovWin CRM</a></li>
-                <li className="zone-title"><a href="#">Salesforce</a></li>
+                <li ><a href="#">GovWin IQ</a></li>
+                <li ><a href="#">GovWin CRM</a></li>
+                <li ><a href="#">Salesforce</a></li>
               </ul>
             </div>
           </div>
         </aside>
       </div>
-
 
       <div className="container">
         <Footer />
