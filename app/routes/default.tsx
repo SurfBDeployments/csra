@@ -7,7 +7,7 @@ import type { Route } from "./+types/home";
 
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "CSRA Modern Intranet TEST" },
+    { title: "CSRA Modern Intranet" },
     {
       name: "description",
       content: "A modernized CSRA enterprise intranet built with React, TypeScript, and Tailwind CSS.",
