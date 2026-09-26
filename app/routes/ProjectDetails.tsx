@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/project-home.css';
 import '../styles/default.css';
-
+import ProjHeader from '~/projheader';
 import Footer from '../footer';
 import NavHeader from '../navheader';
 
@@ -62,9 +62,7 @@ const ProjectHome: React.FC = () => {
 
       <div className="projects-header container">
         <h2 className='h2proj'>Project Summary Tool Center</h2>
-        <nav aria-label="Main navigation">
-          <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="#">Project Sites</a> | <a href="#">People</a> | <a href="/proposal">Proposals</a> | <a href="/projectsummary" className='searchon'>Project Summaries</a> | <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
-        </nav>
+        <ProjHeader />
       </div>
 
 

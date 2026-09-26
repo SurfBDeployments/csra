@@ -22,15 +22,11 @@ a.newsitem:hover {
   text-decoration: underline !important;
 }
 
-header h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #003366;
-}
 
 .featured-section h1,
+header h1,
 H1 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #003366;
 }
@@ -38,7 +34,7 @@ H1 {
 h4 {
 
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 section {
@@ -50,7 +46,7 @@ section {
 }
 
 .h2proj {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-top: 15px;
   color: #003366 !important;
 }
@@ -82,22 +78,15 @@ h3 {
 .topnav,
 .topnav a {
   font-family: Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: .875rem;
   font-weight: 700;
-  color: #66869a;
-  margin-bottom: 0px !important;
+  color: #053c5c;
+  margin: 10px;
   padding-bottom: 0px !important;
   padding-top: 0px !important;
 
 }
 
-
-.topnav a {
-  font-family: Helvetica, sans-serif;
-  font-size: 1rem;
-  color: #053c5c;
-  margin: 10px;
-}
 
 .topnav a:hover {
 
@@ -149,10 +138,6 @@ header {
   margin-bottom: 10px;
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
 
 .container {
   max-width: 1400px;
@@ -634,15 +619,6 @@ footer p {
     max-width: 150px;
   }
 
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  .featured-section h1,
-  H1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-  }
 
   .featured-section h2 {
     font-size: 1.5rem;
@@ -677,30 +653,27 @@ footer p {
   }
 
   .featured-section h2 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
   .col-box h3 {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
-  .topnav {
-    font-size: 1.125rem;
-  }
 
   .topnav a {
-    font-size: 1rem;
+    font-size: .875rem;
     margin: 5px;
   }
 
   .topnav a:active {
-    font-size: 1rem;
+    font-size: .875rem;
     text-decoration: underline;
     margin: 5px;
   }
 
   .topnav a:hover {
-    font-size: 1rem;
+    font-size: .875rem;
     color: #5c9ed3 !important;
     margin: 5px;
   }

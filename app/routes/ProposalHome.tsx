@@ -38,7 +38,7 @@ const ProposalHome: React.FC = () => {
       <NavHeader />
       <div className="projects-header container">
 
-        <h2 className='h2proj'>Proposals Summary Results</h2>
+        <h2 className='h2proj'>Proposals Center</h2>
 
         <p className="search-info">This search looks for matches in the Proposals repository.</p>
 
