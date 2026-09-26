@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {
   await page.goto('https://csra-modern.vercel.app/');
-  await expect(page).toHaveTitle(/SaaSy/);
+  await expect(page).toHaveTitle(/CSRA/);
 });
 
 test.describe('navigation', () => {
