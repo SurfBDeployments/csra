@@ -39,7 +39,7 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 0.95rem;
+
 }
 
 input[type="text"]:focus,
@@ -347,11 +347,12 @@ a.searchon:hover {
   align-items: center;
   justify-content: center;
   padding: 8px 12px;
+  margin: 5px 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
   text-decoration: none;
   color: #0066cc;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   white-space: nowrap;
   /* Prevents text from wrapping vertically */
 }
@@ -704,12 +705,12 @@ article h3 {
 
 .project-header .identifier {
   color: #333;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
-.project-header .date-range {
+.date-range {
   color: #333;
-  font-size: 0.95rem;
+  font-size: .875rem;
   margin-top: 0.5rem;
 }
 

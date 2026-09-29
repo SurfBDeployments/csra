@@ -53,7 +53,7 @@ function HomePage() {
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
     { label: 'Winning Work', href: '#' },
-    { label: 'Projects & Proposals', href: '/projectsummary' },
+    { label: 'Projects & Proposals', href: '/projects' },
     { label: 'Collab & Community', href: '#' },
     { label: 'Benefits & Comp', href: '#' },
     { label: 'Careers', href: '#' },
@@ -90,7 +90,7 @@ function HomePage() {
       image: '/WinningWorkBanner400.jpg',
       links: [
         { label: 'Find Staff', href: '/careers/findstaff' },
-        { label: 'Find Projects', href: '/projectsummary' },
+        { label: 'Find Projects', href: '/projects' },
         { label: 'GovWin CRM', href: 'https://govwin.CSRA.com/' },
         { label: 'Marketing Collateral', href: '/winwork' },
         { label: 'Recompetes', href: '/winwork/recompetes' },

@@ -88,7 +88,7 @@ const Footer = () => {
               <a href="/whatwedo/services">Find Staff</a>
             </div>
             <div>
-              <a href="#">Find Projects</a>
+              <a href="/projects">Find Projects</a>
             </div>
             <div>
               <a href="#">GovWin CRM</a>
@@ -152,45 +152,45 @@ const Footer = () => {
             </div>
 
           </div>
-              <div className="footer-column">
-          <div className="tocheader">
-            <a href="/whatwedo">Careers</a>
+          <div className="footer-column">
+            <div className="tocheader">
+              <a href="/whatwedo">Careers</a>
+
+            </div>
+
+            <div>
+              <a href="#">  Culture</a>
+            </div>
+            <div>
+              <a href="#">Open Roles</a>
+            </div>
+            <div>
+              <a href="#">Our Hiring Process</a>
+            </div>
+            <div>
+              <a href="#">Frequently Asked Questions</a>
+            </div>
 
           </div>
+          <div className="footer-column">
+            <div className="tocheader">
+              <a href="/highlights">News</a>
 
-          <div>
-            <a href="#">  Culture</a>
-          </div>
-          <div>
-            <a href="#">Open Roles</a>
-          </div>
-          <div>
-            <a href="#">Our Hiring Process</a>
-          </div>
-          <div>
-            <a href="#">Frequently Asked Questions</a>
-          </div>
+            </div>
 
+            <div>
+              <a href="#">Press Releases</a>
+            </div>
+            <div>
+              <a href="/infocus">InFocus</a>
+            </div>
+
+
+          </div>
         </div>
-              <div className="footer-column">
-          <div className="tocheader">
-            <a href="/highlights">News</a>
 
-          </div>
 
-          <div>
-            <a href="#">Press Releases</a>
-          </div>
-          <div>
-            <a href="/infocus">InFocus</a>
-          </div>
-      
-
-        </div>
-      </div>
-   
- 
-    </footer >
+      </footer >
     </>
   );
 };

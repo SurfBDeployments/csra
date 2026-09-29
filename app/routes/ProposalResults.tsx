@@ -1,295 +1,236 @@
-import { useState } from 'react';
-import '../styles/project-home.css';
-import '../styles/default.css';
+import { useLoaderData, Link } from "react-router";
 
-import Footer from '../footer';
-import NavHeader from '../navheader';
-import PropHeader from '~/propheader';
+import NavHeader from "~/navheader";
+import Footer from "~/footer";
+import ProjHeader from "~/propheader";
+import PropSearchForm from "~/propsearchform";
 
-interface ProjectItem {
-  id: string;
-  name: string;
-  projectId?: string;
+import { sampleProposalDetails } from "~/data/sampleProposalDetails";
+import type { ProposalDetails } from "~/data/sampleProposalDetails";
+
+
+
+import "../styles/project-home.css";
+import "../styles/default.css";
+
+// -------------------------------------------------------
+// LOADER (filtering + multi-field search)
+// -------------------------------------------------------
+export async function loader({ request }: { request: Request }) {
+  const url = new URL(request.url);
+
+  // Extract parameters matching the form field names
+  const keywords = (url.searchParams.get("keywords") ?? "").trim().toLowerCase();
+  const capability = (url.searchParams.get("capabilities") ?? url.searchParams.get("capability") ?? "").trim().toLowerCase();
+  const artifact = (url.searchParams.get("artifact") ?? url.searchParams.get("artifacts") ?? "").trim().toLowerCase();
+  const tools = (url.searchParams.get("tools") ?? url.searchParams.get("tool") ?? "").trim().toLowerCase();
+  const govWinId = (url.searchParams.get("govwinId") ?? url.searchParams.get("projectId") ?? "").trim().toLowerCase();
+  const customer = (url.searchParams.get("customers") ?? url.searchParams.get("customer") ?? "").trim().toLowerCase();
+
+  let results: ProposalDetails[] = sampleProposalDetails;
+
+  // Filter: Keywords (General Search across Name, Description, Group, Managers)
+  if (keywords) {
+    results = results.filter(
+      (p) =>
+        p.name.toLowerCase().includes(keywords) ||
+        p.description.toLowerCase().includes(keywords) ||
+        p.proposalManager.toLowerCase().includes(keywords) ||
+        p.technicalLead.toLowerCase().includes(keywords) ||
+        p.group.toLowerCase().includes(keywords)
+    );
+  }
+
+  // Filter: Capabilities (Searches Group, Business Program, Proposal Type, and Description)
+  if (capability) {
+    results = results.filter(
+      (p) =>
+        p.group.toLowerCase().includes(capability) ||
+        p.businessProgram.toLowerCase().includes(capability) ||
+        p.proposalType.toLowerCase().includes(capability) ||
+        p.description.toLowerCase().includes(capability)
+    );
+  }
+
+  // Filter: Proposal Artifacts (Exact or partial match against artifactType)
+  if (artifact) {
+    results = results.filter(
+      (p) => p.artifactType.toLowerCase().includes(artifact)
+    );
+  }
+
+  // Filter: Tools (Searches Technical Lead, Description, and Name)
+  if (tools) {
+    results = results.filter(
+      (p) =>
+        p.name.toLowerCase().includes(tools) ||
+        p.description.toLowerCase().includes(tools) ||
+        p.technicalLead.toLowerCase().includes(tools)
+    );
+  }
+
+  // Filter: GovWin ID / Project ID
+  if (govWinId) {
+    results = results.filter(
+      (p) =>
+        p.projectId.toLowerCase().includes(govWinId) ||
+        p.id.toLowerCase().includes(govWinId)
+    );
+  }
+
+  // Filter: Customers (Searches Account and Customer fields)
+  if (customer) {
+    results = results.filter(
+      (p) =>
+        p.customer.toLowerCase().includes(customer) ||
+        p.account.toLowerCase().includes(customer)
+    );
+  }
+
+  return {
+    keywords,
+    capability,
+    artifact,
+    tools,
+    govWinId,
+    customer,
+    total: results.length,
+    results,
+  };
 }
 
-const sampleProjects: ProjectItem[] = [
-  { id: '1', name: 'Client Portal Development Initiative', projectId: 'PROJ-2024-001' },
-  { id: '2', name: 'Quarterly Results Presentation', projectId: 'PROJ-2024-002' },
-  { id: '3', name: 'Customer Migration Project', projectId: 'PROJ-2024-003' },
-  { id: '4', name: 'Rad Rapid Prototype Project', projectId: 'PROJ-2025-004' }
-];
-
-const ProposalResults: React.FC = () => {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState<ProjectItem[]>([]);
-
-  const handleSearch = (q: string) => {
-    const trimmed = q.trim().toLowerCase();
-    if (!trimmed) {
-      setResults([]);
-      return;
-    }
-    const matched = sampleProjects.filter(p => p.name.toLowerCase().includes(trimmed));
-    setResults(matched);
+// -------------------------------------------------------
+// COMPONENT
+// -------------------------------------------------------
+export default function ProposalResults() {
+  const { results } = useLoaderData() as {
+    results: ProposalDetails[];
   };
 
   return (
     <>
       <NavHeader />
+
       <div className="projects-header container">
-
-        <h2 className='h2proj'>Proposals Summary Results</h2>
-
-        <p className="search-info">This search looks for matches in the Proposals repository.</p>
-
-        <PropHeader />
+        <h2 className="h2proj">Proposals Summary Results</h2>
+        <p className="search-info">
+          This search looks for matches in the Proposals repository.
+        </p>
+        <ProjHeader />
       </div>
 
       <div className="projects-container">
+        {/* LEFT SIDEBAR */}
         <aside className="projects-sidebar">
           <div className="refinement-panel">
-            <h2>Refine Results</h2>
+            <h2 className="zone-title">Group</h2>
+            <ul className="refinement-list">
+              <li>Software Engineering</li>
+              <li>Business Intelligence Group</li>
+              <li>Infrastructure Team</li>
+            </ul>
+          </div>
 
-            <div className="refinement-category">
-              <h3>Result Type</h3>
-              <ul className="filter-list">
-                <li><a href="#adobe">Adobe PDF</a> <span className="filter-count">(42)</span></li>
-                <li><a href="#word">Word Document</a> <span className="filter-count">(28)</span></li>
-                <li><a href="#excel">Excel Sheet</a> <span className="filter-count">(15)</span></li>
-                <li><a href="#webpage">Webpage</a> <span className="filter-count">(31)</span></li>
-              </ul>
-            </div>
+          <div className="refinement-panel">
+            <h2 className="zone-title">Contract Type</h2>
+            <ul className="refinement-list">
+              <li>Fixed Price</li>
+              <li>Time & Materials</li>
+              <li>Cost Plus</li>
+            </ul>
+          </div>
 
-            <div className="refinement-category">
-              <h3>Document Type</h3>
-              <ul className="filter-list">
-                <li><a href="#Project">Proposal</a> <span className="filter-count">(52)</span></li>
-                <li><a href="#response">Response</a> <span className="filter-count">(18)</span></li>
-                <li><a href="#template">Template</a> <span className="filter-count">(9)</span></li>
-                <li><a href="#standard">Standard</a> <span className="filter-count">(11)</span></li>
-              </ul>
-            </div>
-
-            <div className="refinement-category">
-              <h3>Capabilities</h3>
-              <ul className="filter-list">
-                <li><a href="#engineering">Engineering</a> <span className="filter-count">(25)</span></li>
-                <li><a href="#software">Software</a> <span className="filter-count">(30)</span></li>
-                <li><a href="#management">Management</a> <span className="filter-count">(22)</span></li>
-                <li><a href="#deployment">Deployment</a> <span className="filter-count">(16)</span></li>
-              </ul>
-            </div>
-
-            <div className="refinement-category">
-              <h3>Customer</h3>
-              <ul className="filter-list">
-                <li><a href="#dod">DoD</a> <span className="filter-count">(35)</span></li>
-                <li><a href="#civilian">Civilian</a> <span className="filter-count">(24)</span></li>
-                <li><a href="#other">Other Federal</a> <span className="filter-count">(15)</span></li>
-              </ul>
-            </div>
+          <div className="refinement-panel">
+            <h2 className="zone-title">Customer</h2>
+            <ul className="refinement-list">
+              <li>Acme Corporation</li>
+              <li>Global Finance Partners</li>
+              <li>Federal Agencies</li>
+            </ul>
           </div>
         </aside>
 
+        {/* MAIN CONTENT */}
         <main className="projects-main">
-
-
-          <article className="search-article">
-            <h3>Search Proposals</h3>
-            <p className="search-description">
-              Enter a Proposal name (or partial Proposal name) to find matching Proposal and hit enter.
-            </p>
-
-            <div className="search-form-container">
-              <form id="ProposalearchForm" method="get" action="/search/">
-
-                {/* Top Section: Keywords & Filters */}
-                <div className="form-grid">
-
-                  {/* Keywords */}
-                  <div className="form-group keyword-group">
-                    <label htmlFor="keywords" className="form-label">Keyword(s):</label>
-                    <input type="text" id="keywords" name="keywords" placeholder="Enter keywords" />
-                  </div>
-
-                  {/* Checkboxes */}
-                  <div className="form-group checkbox-group">
-                    <label className="checkbox-label">
-                      <input type="checkbox" name="checkbox" id="checkbox" />
-                      <span>Match any Keyword</span>
-                    </label>
-                    <label className="checkbox-label">
-                      <input type="checkbox" name="checkbox2" id="checkbox2" />
-                      <span>Match All Keywords</span>
-                    </label>
-                  </div>
-
-                </div>
-
-                <hr className="form-divider" />
-
-                {/* Main Form Inputs Grid */}
-                <div className="form-grid search-fields-grid">
-
-                  {/* Left Column Fields */}
-                  <div className="form-group">
-                    <label htmlFor="submittedWithin" className="form-label">Submitted within the last:</label>
-                    <select id="submittedWithin" name="submittedWithin">
-                      <option value="">Select timeframe</option>
-                      <option value="1">last year</option>
-                      <option value="2">last 2 years</option>
-                      <option value="3">last 3 years</option>
-                    </select>
-                  </div>
-
-                  {/* Right Column Fields (Reordered naturally for mobile stack) */}
-                  <div className="form-group">
-                    <label htmlFor="capabilities" className="form-label">
-
-                      Capabilities:
-
-                    </label>
-                    <input type="text" id="capabilities" name="capabilities" placeholder="Enter capabilities" />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="ProposalArtifacts" className="form-label">Proposal Artifacts:</label>
-                    <select id="ProposalArtifacts" name="ProposalArtifacts" multiple>
-                      <option value="2f9bf6c8-0be6-41e6-94c2-9ae23d024c67">Full Proposal</option>
-                      <option value="d705534a-3bd5-4eb8-b21d-7d3851e5ae1e">Gold Standard</option>
-                      <option value="3050a2aa-2924-4e14-a501-fcf1428d9941">Oral Presentation</option>
-                      <option value="a85f5364-b69c-4b5c-aeeb-1d99ea573bcb">Past Performance</option>
-                      <option value="3050a2aa-2924-4e14-a501-fcf1428d9941">Proposal Graphic</option>
-                      <option value="57ccb577-e226-4c74-acf8-64d2045bd36c">RFI Response</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="tools" className="form-label">Tools:</label>
-                    <input type="text" id="tools" name="tools" placeholder="Enter tools" />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="govwinId" className="form-label">GovWin ID:</label>
-                    <input type="text" id="govwinId" name="govwinId" placeholder="Enter GovWin ID" />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="customers" className="form-label">
-
-                      Customers:
-
-                    </label>
-                    <input type="text" id="customers" name="customers" placeholder="Enter customers" />
-                  </div>
-
-                </div>
-
-                {/* Action Buttons */}
-                <div className="form-actions">
-                  <button type="submit" className="button shadow-md"><a href="/Proposalresults">Search</a></button>
-                  <button type="reset" className="button shadow-md">Clear</button>
-                </div>
-
-              </form>
-            </div>
-          </article>
+          <PropSearchForm />
 
           <section className="main-content">
             <div className="search-controls">
               <div className="results-count">
-                <strong>Showing 1&laquo;10 of 90 results</strong> (0.23 seconds)
+                <strong>Showing {results.length} results</strong>
               </div>
               <select className="sort-dropdown">
                 <option value="relevance">Sort by Relevance</option>
-                <option value="date">Sort by Date Modified</option>
+                <option value="date">Sort by Date</option>
                 <option value="title">Sort by Title</option>
               </select>
             </div>
 
             <div className="search-results">
               <h3 className="zone-title">Proposal Search Results</h3>
-              <p>Your search results will be displayed in this area.</p>
 
-              <div className="result-item">
-                <div className="result-title"><a href="#">Enterprise Management System - Proposal Document</a></div>
-                <div className="result-description">This comprehensive Project outlines the design and implementation of an enterprise-level management system for DoD operations. It covers system architecture, security requirements, and deployment strategy.</div>
-                <div className="result-metadata">
-                  <div className="metadata-item"><span className="metadata-label">Author:</span><span>Software Engineering Team</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Date:</span><span>March 15, 2026</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Size:</span><span>2.4 MB</span></div>
-                </div>
-                <div className="result-url">/Projects/2026/enterprise-management-system.pdf</div>
-              </div>
+              {results.map((proposal) => (
+                <div key={proposal.projectId} className="proposal-result-card" style={{ marginBottom: "24px" }}>
+                  <h3 className="proposal-title" style={{ margin: "0 0 6px 0" }}>
+                    <Link
+                      to={`/proposals/${proposal.projectId}`}
+                      style={{
+                        color: "#0056b3",
+                        fontSize: "1.1rem",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                      }}
+                      className="proposal-link"
+                    >
+                      {proposal.name}
+                    </Link>
+                  </h3>
 
-              <div className="result-item">
-                <div className="result-title"><a href="#">Cloud Infrastructure Implementation - Technical Response</a></div>
-                <div className="result-description">Technical response document addressing government requirements for cloud infrastructure deployment. Includes security assessment, scalability analysis, and cost Projections.</div>
-                <div className="result-metadata">
-                  <div className="metadata-item"><span className="metadata-label">Author:</span><span>Infrastructure Team</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Date:</span><span>March 10, 2026</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Size:</span><span>1.8 MB</span></div>
-                </div>
-                <div className="result-url">/Projects/2026/cloud-infrastructure-response.docx</div>
-              </div>
+                  <p style={{ margin: "2px 0", color: "#555", fontSize: "0.9rem" }}>
+                    <strong>Project ID:</strong> {proposal.projectId} | <strong>Customer:</strong> {proposal.customer}
+                  </p>
 
-              <div className="result-item">
-                <div className="result-title"><a href="/proposaldetails">AI Platform - Bold Standard</a></div>
-                <div className="result-description">Gold standard Proposal template for data analytics platforms. Contains best practices, lessons learned, and proven methodologies for similar Proposals.</div>
-                <div className="result-metadata">
-                  <div className="metadata-item"><span className="metadata-label">Author:</span><span>Infrastructure Team</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Date:</span><span>February 8, 2026</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Size:</span><span>2.1 MB</span></div>
-                </div>
-                <div className="result-url">/Projects/standards/data-analytics-gold-standard.pdf</div>
-              </div>
+                  {/* Metadata Row with Artifact */}
+                  <p style={{ margin: "2px 0", color: "#666", fontSize: "0.85rem" }}>
+                    <strong>Author:</strong> {proposal.group || proposal.proposalManager} |{" "}
+                    <strong>Artifact:</strong> {proposal.artifactType || "N/A"} |{" "}
+                    <strong>Date:</strong> {proposal.submissionDate} |{" "}
+                    <strong>Evaluation Score:</strong> {proposal.evaluationScore}
+                  </p>
 
-              <div className="result-item">
-                <div className="result-title"><a href="#">Data Analytics Platform - Gold Standard</a></div>
-                <div className="result-description">Gold standard Project template for data analytics platforms. Contains best practices, lessons learned, and proven methodologies for similar Projects.</div>
-                <div className="result-metadata">
-                  <div className="metadata-item"><span className="metadata-label">Author:</span><span>Business Intelligence Group</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Date:</span><span>February 28, 2026</span></div>
-                  <div className="metadata-item"><span className="metadata-label">Size:</span><span>3.1 MB</span></div>
+                  <p style={{ margin: "6px 0", fontSize: "0.95rem" }}>{proposal.description}</p>
+
+                  <p style={{ margin: "2px 0", fontSize: "0.85rem", color: "#2b6cb0" }}>
+                    <code>/Proposals/2026/{proposal.projectId.toLowerCase()}.pdf</code>
+                  </p>
                 </div>
-                <div className="result-url">/Projects/standards/data-analytics-gold-standard.pdf</div>
-              </div>
+              ))}
             </div>
           </section>
-
-          <div className="pagination">
-            <span className="disabled">&laquo; Previous</span>
-            <span className="current">1</span>
-            <a href="#page-2">2</a>
-            <a href="#page-3">3</a>
-            <a href="#page-4">4</a>
-            <span>...</span>
-            <a href="#page-9">9</a>
-            <a href="#page-2">Next &laquo;</a>
-          </div>
-
         </main>
 
+        {/* RIGHT SIDEBAR */}
         <aside className="right-sidebar-container">
           <div className="sidebar right-sidebar">
             <div className="refinement-panel">
               <h2 className="zone-title">Proposal Contacts</h2>
-              <p><span className="search-info">For questions or access to restricted materials, contact: <a href="mailto:ProjectSupport@csra.com">ProjectSupport@csra.com</a></span></p>
-            </div>
-          </div>
-          <div className="sidebar right-sidebar">
-            <div className="refinement-panel">
-              <h2 className="zone-title">Request Support</h2>
-              <p><span className="zone-title"><a href="#">Request Support</a></span></p>
+              <p>
+                <span className="search-info">
+                  For questions or access to restricted materials, contact:{" "}
+                  <a href="mailto:ProposalSupport@csra.com">
+                    ProposalSupport@csra.com
+                  </a>
+                </span>
+              </p>
             </div>
           </div>
           <div className="sidebar right-sidebar">
             <div className="refinement-panel">
               <h2 className="zone-title">Proposal Tools</h2>
               <ul>
-                <li ><a href="#">GovWin IQ</a></li>
-                <li ><a href="#">GovWin CRM</a></li>
-                <li ><a href="#">Salesforce</a></li>
+                <li className="zone-title"><a href="#">GovWin IQ</a></li>
+                <li className="zone-title"><a href="#">GovWin CRM</a></li>
+                <li className="zone-title"><a href="#">Salesforce</a></li>
               </ul>
             </div>
           </div>
@@ -301,6 +242,4 @@ const ProposalResults: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default ProposalResults;
+}
