@@ -8,8 +8,6 @@ import PropSearchForm from "~/propsearchform";
 import { sampleProposalDetails } from "~/data/sampleProposalDetails";
 import type { ProposalDetails } from "~/data/sampleProposalDetails";
 
-
-
 import "../styles/project-home.css";
 import "../styles/default.css";
 
@@ -26,6 +24,8 @@ export async function loader({ request }: { request: Request }) {
   const tools = (url.searchParams.get("tools") ?? url.searchParams.get("tool") ?? "").trim().toLowerCase();
   const govWinId = (url.searchParams.get("govwinId") ?? url.searchParams.get("projectId") ?? "").trim().toLowerCase();
   const customer = (url.searchParams.get("customers") ?? url.searchParams.get("customer") ?? "").trim().toLowerCase();
+  const submittedWithin = url.searchParams.get("submittedWithin"); // gets "1", "2", or "3"
+
 
   let results: ProposalDetails[] = sampleProposalDetails;
 
@@ -87,6 +87,25 @@ export async function loader({ request }: { request: Request }) {
     );
   }
 
+  // sUBMISSION DATE
+  if (submittedWithin) {
+    const yearsBack = parseInt(submittedWithin, 10);
+    if (!isNaN(yearsBack)) {
+      const now = new Date();
+      // Subtracts N years from today's date
+      const cutoffDate = new Date(
+        now.getFullYear() - yearsBack,
+        now.getMonth(),
+        now.getDate()
+      );
+
+      results = results.filter((p) => {
+        const subDate = new Date(p.submissionDate);
+        return !isNaN(subDate.getTime()) && subDate >= cutoffDate;
+      });
+    }
+  }
+
   return {
     keywords,
     capability,
@@ -96,6 +115,7 @@ export async function loader({ request }: { request: Request }) {
     customer,
     total: results.length,
     results,
+    submittedWithin
   };
 }
 

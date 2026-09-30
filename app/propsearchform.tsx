@@ -1,5 +1,5 @@
 
-
+import { useSearchParams } from "react-router";
 
 interface NavLink {
   label: string;

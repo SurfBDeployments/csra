@@ -61,7 +61,7 @@ export default function ProjectDetails() {
               </div>
 
               <div className="data">
-                <strong>Submission Date:</strong> {project.startDate}
+                <strong>Submission Date:</strong> {project.submissionDate}
               </div>
             </div>
 
