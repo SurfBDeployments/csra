@@ -44,12 +44,10 @@ export default function ProposalDetails() {
             <div className="project-header">
               <h2>{proposal.name}</h2>
 
-              <div className="data">
-                <strong>Proposal ID:</strong> {proposal.id}
-              </div>
+
 
               <div className="data">
-                <strong>Project ID:</strong> {proposal.projectId}
+                <strong>Proposal ID:</strong> {proposal.projectId}
               </div>
 
               <div className="data">
