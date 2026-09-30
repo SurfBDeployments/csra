@@ -10,7 +10,7 @@ export function meta({ }: Route.MetaArgs) {
     { title: "CSRA Modern Intranet" },
     {
       name: "description",
-      content: "Modernized CSRA enterprise intranet built with React, TypeScript, and Tailwind CSS.",
+      content: "A modernized CSRA enterprise intranet built with React, TypeScript, and Tailwind CSS.",
     },
   ];
 }
@@ -48,12 +48,12 @@ function HomePage() {
   function handleClick() {
     setlikes(likes + 1);
   }
- 
+
   const topNavLinks: NavLink[] = [
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
     { label: 'Winning Work', href: '#' },
-    { label: 'Project Execution', href: '/projectsummary' },
+    { label: 'Projects & Proposals', href: '/projects' },
     { label: 'Collab & Community', href: '#' },
     { label: 'Benefits & Comp', href: '#' },
     { label: 'Careers', href: '#' },
@@ -71,33 +71,6 @@ function HomePage() {
 
   const featuredBoxes: FeaturedBox[] = [
     {
-      title: 'Collaboration & Community',
-
-      image: '/CollaborateBanner400.jpg',
-      links: [
-        { label: 'Best Teams at CSRA', href: '/collab/bestteams' },
-        { label: "Bill's Blog", href: 'https://spark.CSRA.com/' },
-        { label: 'Communities of Practice', href: '/collab/cops' },
-        { label: 'Employee Resource Groups', href: '/collab/erg' },
-        { label: 'IS THERE', href: '/collab/isthere' },
-        { label: 'Lync', href: '/support/infotech/pe/lync' },
-        { label: 'CSRA Connects', href: '/collab/CSRA-connects' },
-        { label: 'Spark', href: 'https://spark.CSRA.com/' },
-      ],
-    },
-    {
-      title: 'Winning Work',
-      image: '/WinningWorkBanner400.jpg',
-      links: [
-        { label: 'Find Staff', href: '/careers/findstaff' },
-        { label: 'Find Projects', href: '/projectsummary' },
-        { label: 'GovWin CRM', href: 'https://govwin.CSRA.com/' },
-        { label: 'Marketing Collateral', href: '/winwork' },
-        { label: 'Recompetes', href: '/winwork/recompetes' },
-        { label: 'Reusable Proposal Content', href: '/winwork/propdev' },
-      ],
-    },
-    {
       title: 'What We Do',
       image: '/whatwedomain400.jpg',
       links: [
@@ -112,6 +85,35 @@ function HomePage() {
         { label: 'Software & System Development', href: '/whatwedo/softsysdev' },
       ],
     },
+    {
+      title: 'Winning Work',
+      image: '/WinningWorkBanner400.jpg',
+      links: [
+        { label: 'Find Staff', href: '/careers/findstaff' },
+        { label: 'Find Projects', href: '/projects' },
+        { label: 'GovWin CRM', href: 'https://govwin.CSRA.com/' },
+        { label: 'Marketing Collateral', href: '/winwork' },
+        { label: 'Recompetes', href: '/winwork/recompetes' },
+        { label: 'Reusable Proposal Content', href: '/winwork/propdev' },
+      ],
+    },
+    {
+      title: 'Collaboration & Community',
+
+      image: '/CollaborateBanner400.jpg',
+      links: [
+        { label: 'Best Teams at CSRA', href: '/collab/bestteams' },
+        { label: "Bill's Blog", href: 'https://spark.CSRA.com/' },
+        { label: 'Communities of Practice', href: '/collab/cops' },
+        { label: 'Employee Resource Groups', href: '/collab/erg' },
+        { label: 'IS THERE', href: '/collab/isthere' },
+        { label: 'CSRA Connects', href: '/collab/CSRA-connects' },
+        { label: 'Spark', href: 'https://spark.CSRA.com/' },
+      ],
+    },
+
+
+
   ];
 
   return (
@@ -197,6 +199,7 @@ function HomePage() {
           <main>
             {/* Featured Content Section */}
             <section className="featured-section">
+              <h1>Excellence in Innovation</h1>
               <h2>Featured Content</h2>
               <div className="three-col">
                 {featuredBoxes.map((box) => (
@@ -225,7 +228,7 @@ function HomePage() {
               <div className="news-section">
                 <div>
                   <div className="news-item">
-                    <h4>Company Announcements</h4>
+                    <h3>Company Announcements</h3>
                     <p>
                       Stay up to date with the latest CSRA announcements, policy updates, and important company information. Check back regularly for updates.
                     </p>

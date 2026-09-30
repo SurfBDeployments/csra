@@ -1,4 +1,127 @@
 /* Project Home Styles */
+/* Container & Description */
+.search-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.search-description {
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+/* Base Form Control Spacing */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.form-label a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
+select[multiple] {
+  min-height: 115px;
+}
+
+/* Checkbox Alignment */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.form-divider {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 1.25rem 0;
+}
+
+/* Desktop Grid (Screens > 769px) */
+@media (min-width: 768px) {
+  .search-fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 2rem;
+  }
+
+  .keyword-group {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* Mobile & Tablet Adjustments (Screens <= 768px) */
+@media (max-width: 768px) {
+  .search-fields-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Moves "Match any Keyword" and "Match all Keywords" onto a single line */
+  .checkbox-group {
+
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+/* Form Action Buttons */
+.form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 
 * {
   margin: 0;
@@ -11,7 +134,7 @@
   text-align: left;
   color: #003366;
   font-family: inherit;
-  font-size: .8125em;
+  font-size: .875rem;
   padding-bottom: 20px;
   font-weight: 700;
 }
@@ -22,16 +145,13 @@ a.searchlinks:hover {
   text-align: left;
   color: #00458A !important;
   font-family: inherit;
-  font-size: 1em;
+  font-size: .875rem;
   padding-bottom: 20px;
   font-weight: 700;
 }
 
 a.searchon:hover {
-
   color: #003366 !important;
-
-
 }
 
 .page-container {
@@ -80,19 +200,18 @@ a.searchon:hover {
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  position: relative;
 }
 
 .sidebar.right-sidebar {
   margin-right: 10px;
+  display: contents;
 }
 
 .refinement-panel h2 {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   color: #333;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #003366;
+
 }
 
 .refinement-category {
@@ -100,7 +219,7 @@ a.searchon:hover {
 }
 
 .refinement-category h3 {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 10px;
@@ -123,6 +242,7 @@ a.searchon:hover {
   margin-bottom: 25px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
+  font-size: .9rem;
 }
 
 .sort-dropdown {
@@ -154,7 +274,7 @@ a.searchon:hover {
 }
 
 .result-title {
-  font-size: 1.15em;
+  font-size: 1.15rem;
   font-weight: 600;
   color: #0066cc;
   margin-bottom: 8px;
@@ -169,6 +289,15 @@ a.searchon:hover {
   text-decoration: underline;
 }
 
+.logo-header {
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 1.25rem;
+  max-width: 1400px;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
 .result-description {
   color: #555;
   font-size: 0.95em;
@@ -180,7 +309,7 @@ a.searchon:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: #666;
 }
 
@@ -198,39 +327,39 @@ a.searchon:hover {
 .result-url {
   color: #006621;
   word-break: break-all;
-  font-size: 0.85em;
+  font-size: 0.85rem;
   margin-top: 10px;
 }
 
 /* Pagination */
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
 }
 
 /* Force children to stay horizontal inline-flex items */
 .pagination a,
 .pagination span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #0066cc;
-    font-size: 0.95em;
-    white-space: nowrap; /* Prevents text from wrapping vertically */
-}
-.pagination {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: 5px;
+  padding: 8px 12px;
+  margin: 5px 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #0066cc;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  /* Prevents text from wrapping vertically */
+}
+
+.pagination {
+
+  justify-content: center;
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid #eee;
@@ -253,7 +382,7 @@ a.searchon:hover {
 
 .search-info {
   color: #454545;
-  font-size: .875em;
+
 }
 
 /* Sidebar */
@@ -270,14 +399,14 @@ a.searchon:hover {
 
 body {
   font-family: Helvetica, sans-serif;
-  font-size: .875em;
+  font-size: .875rem;
   color: #333;
   line-height: 1.6;
 }
 
 p {
   font-family: Helvetica, sans-serif;
-  font-size: .875em;
+  font-size: .875rem;
   color: #333;
   line-height: 1.6;
 }
@@ -285,17 +414,18 @@ p {
 h2 {
   color: #003366;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 header {
   margin-bottom: 20px;
 }
 
-.projects-header, .projects-header .container {
+.projects-header,
+.projects-header .container {
   background-color: #DDDFDF;
-  padding: .5rem 2rem!important;
-  margin: 1rem auto!important;
+  padding: .5rem 2rem !important;
+  margin: 1rem auto !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   position: relative;
@@ -321,18 +451,18 @@ header {
 }
 
 .search-form-container {
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 20px;
   border-radius: 5px;
   background-color: #dbeaf7;
   border: solid 1px #dedede;
-  max-width: 1000px;
+  max-width: 800px;
   text-align: left;
 }
 
 button {
-  padding: 4px .875em;
-  font-size: .875em;
+  padding: 4px .875rem;
+  font-size: .875rem;
   cursor: pointer;
   background-color: #003366;
   color: #ededed !important;
@@ -344,8 +474,8 @@ button {
 
 button,
 button a {
-  padding: 4px .875em;
-  font-size: .875em;
+  padding: 4px .875rem;
+  font-size: .875rem;
   cursor: pointer;
   background-color: #003366;
   color: #ededed !important;
@@ -357,7 +487,8 @@ button a {
   text-align: center;
 }
 
-input:focus, button:focus {
+input:focus,
+button:focus {
   outline: #003366 solid 2px;
 }
 
@@ -462,7 +593,7 @@ select {
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   height: fit-content;
-  font-size: .875em;
+  font-size: .875rem;
 }
 
 .projects-sidebar nav ul {
@@ -520,11 +651,12 @@ article h2 {
 }
 
 article h3 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  color: #555;
+  color: #003366;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  border-bottom: 2px solid #003366;
 }
 
 .project-details {
@@ -573,12 +705,12 @@ article h3 {
 
 .project-header .identifier {
   color: #333;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
-.project-header .date-range {
+.date-range {
   color: #333;
-  font-size: 0.95rem;
+  font-size: .875rem;
   margin-top: 0.5rem;
 }
 
@@ -630,7 +762,20 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .projects-sidebar {
+  .righthome-sidebar-container {
+    left: 0em !important;
+    position: relative;
+  }
+
+  .projects-header,
+  .projects-header .container {
+    padding: .5rem 2rem !important;
+    margin: 1rem auto !important;
+    left: 0rem;
+  }
+
+  .projects-sidebar,
+  .right-sidebar-container {
     display: none;
   }
 

@@ -1,24 +1,28 @@
-FROM node:26-alpine3.23 AS development-dependencies-env
-COPY . /app
+# Stage 1: Build stage
+FROM node:20-alpine AS builder
 WORKDIR /app
+
+COPY package*.json ./
 RUN npm ci
 
-FROM node:26-alpine3.23 AS production-dependencies-env
-COPY ./package.json package-lock.json /app/
-WORKDIR /app
-RUN npm ci --omit=dev
-
-FROM node:26-alpine3.23 AS build-env
-COPY . /app/
-COPY --from=development-dependencies-env /app/node_modules /app/node_modules
-WORKDIR /app
+COPY . .
 RUN npm run build
 
-
-FROM node:26-alpine3.23
-COPY ./package.json package-lock.json /app/
-COPY --from=production-dependencies-env /app/node_modules /app/node_modules
-COPY --from=build-env /app/build /app/build
+# Stage 2: Production Server Runtime
+FROM node:20-alpine AS runner
 WORKDIR /app
+
+ENV NODE_ENV=production
+ENV PORT=8080
+
+# Copy package management files and install production dependencies only
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copy the generated build output from the builder stage
+COPY --from=builder /app/build ./build
+
+EXPOSE 8080
+
+# Starts @react-router/serve on port 8080
 CMD ["npm", "run", "start"]
-Test your Dockerfile by building the image and running a container to ensure everything works as expected.

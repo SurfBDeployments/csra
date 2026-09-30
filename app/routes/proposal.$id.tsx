@@ -1,21 +1,15 @@
+import { useLoaderData } from "react-router";
+import type { LoaderFunctionArgs } from "react-router";
+import { sampleProposalDetails } from "~/data/sampleProposalDetails";
+import NavHeader from "~/navheader";
+import Footer from "~/footer";
+import ProjHeader from "~/projheader";
 import "../styles/project-home.css";
 import "../styles/default.css";
 
-import NavHeader from "~/navheader";
-import PropHeader from "~/propheader";
-import Footer from "~/footer";
-
-import { useLoaderData, Link } from "react-router";
-
-
-// ---------------- LOADER ----------------
-import { sampleProposalDetails } from "~/data/sampleProposalDetails"; //
-
-export async function loader({ params }: { params: { projectId?: string } }) {
-  // Access params.projectId matching the route parameter ":projectId"
-  const { projectId } = params;
-
-  const proposal = sampleProposalDetails.find((p) => p.projectId === projectId); //
+export async function loader({ params }: LoaderFunctionArgs) {
+  const id = params.id;
+  const proposal = sampleProposalDetails.find(p => p.id === id);
 
   if (!proposal) {
     throw new Response("Not Found", { status: 404 });
@@ -24,9 +18,7 @@ export async function loader({ params }: { params: { projectId?: string } }) {
   return proposal;
 }
 
-// ---------------- COMPONENT ----------------
-
-export default function ProposalDetails() {
+export default function ProposalDetailPage() {
   const proposal = useLoaderData<typeof loader>();
 
   return (
@@ -34,8 +26,8 @@ export default function ProposalDetails() {
       <NavHeader />
 
       <div className="projects-header container">
-        <h2 className="h2proj">Proposal Details</h2>
-        <PropHeader />
+        <h2 className="h2proj">Proposals Center</h2>
+        <ProjHeader />
       </div>
 
       <div className="projectshome-container">
@@ -43,42 +35,38 @@ export default function ProposalDetails() {
           <article>
             <div className="project-header">
               <h2>{proposal.name}</h2>
-
               <div className="data">
-                <strong>Proposal ID:</strong> {proposal.id}
+                <strong>Proposal ID:</strong> {proposal.projectId}
               </div>
-
-              <div className="data">
-                <strong>Project ID:</strong> {proposal.projectId}
-              </div>
-
-              <div className="data">
-                <strong>Customer:</strong> {proposal.customer}
-              </div>
-
-              <div className="data">
-                <strong>Proposal Type:</strong> {proposal.proposalType}
-              </div>
-
-              <div className="data">
-                <strong>Submission Date:</strong> {proposal.submissionDate}
+              <div className="date-range">
+                <strong>Submission Window:</strong> {proposal.submissionDate} – {proposal.dueDate}
               </div>
             </div>
 
             <section className="full-width">
-              <h3>Description</h3>
+              <h3>Proposal Description</h3>
               <p>{proposal.description}</p>
             </section>
 
             <div className="project-details">
+              <section>
+                <h4>Customer</h4>
+                <p>{proposal.customer}</p>
+              </section>
+
               <section>
                 <h4>Group</h4>
                 <p>{proposal.group}</p>
               </section>
 
               <section>
-                <h4>Contract Name</h4>
-                <p>{proposal.contractName}</p>
+                <h4>Business Program</h4>
+                <p>{proposal.businessProgram}</p>
+              </section>
+
+              <section>
+                <h4>Account</h4>
+                <p>{proposal.account}</p>
               </section>
 
               <section>
@@ -89,6 +77,21 @@ export default function ProposalDetails() {
               <section>
                 <h4>Technical Lead</h4>
                 <p>{proposal.technicalLead}</p>
+              </section>
+
+              <section>
+                <h4>Contract Name</h4>
+                <p>{proposal.contractName}</p>
+              </section>
+
+              <section>
+                <h4>Contract Type</h4>
+                <p>{proposal.contractType}</p>
+              </section>
+
+              <section>
+                <h4>Proposal Type</h4>
+                <p>{proposal.proposalType}</p>
               </section>
 
               <section>
@@ -103,9 +106,11 @@ export default function ProposalDetails() {
             </div>
 
             <div style={{ marginTop: "20px", textAlign: "center" }}>
-              <Link to="/proposalresults">
-                <button className="button shadow-md">Back to Results</button>
-              </Link>
+              <a href={`/proposals/${proposal.id}/edit`}>
+                <button type="submit" className="button shadow-md">
+                  Edit Proposal
+                </button>
+              </a>
             </div>
           </article>
         </main>
@@ -117,22 +122,11 @@ export default function ProposalDetails() {
               <p>
                 <span className="search-info">
                   For questions or access to restricted materials, contact:{" "}
-                  <a href="mailto:ProjectSupport@csra.com">
-                    ProjectSupport@csra.com
+                  <a href="mailto:ProposalSupport@csra.com">
+                    ProposalSupport@csra.com
                   </a>
                 </span>
               </p>
-            </div>
-          </div>
-
-          <div className="sidebar right-sidebar">
-            <div className="refinement-panel">
-              <h2 className="zone-title">Proposal Tools</h2>
-              <ul>
-                <li className="zone-title"><a href="#">GovWin IQ</a></li>
-                <li className="zone-title"><a href="#">GovWin CRM</a></li>
-                <li className="zone-title"><a href="#">Salesforce</a></li>
-              </ul>
             </div>
           </div>
         </aside>

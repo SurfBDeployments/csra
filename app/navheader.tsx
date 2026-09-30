@@ -12,7 +12,7 @@ const NavHeader = () => {
     { label: 'Our Org', href: '#', id: 'our-org' },
     { label: 'What We Do', href: '#', id: 'what-we-do' },
     { label: 'Winning Work', href: '#', id: 'winning-work' },
-    { label: 'Project Execution', href: '/projectsummary', id: 'project-execution' },
+    { label: 'Projects & Proposals', href: '/projects', id: 'project-execution' },
     { label: 'Collab & Community', href: '#', id: 'collab-community' },
     { label: 'Benefits & Comp', href: '#', id: 'benefits-comp' },
     { label: 'Careers', href: '#', id: 'careers' },
@@ -24,8 +24,9 @@ const NavHeader = () => {
       {/* Header */}
       <header>
         <div className="container mx-auto py-4">
-            <a href="/" className="logo">
-          <img src="/csra-banner.png" alt="CSRA Banner" />
+
+          <a href="/" className="logo">
+            <img src="/csra-banner.png" alt="CSRA Banner" style={{ width: 'auto', maxWidth: '100%' }} />
           </a>
           <div className="search">
             <input
@@ -35,12 +36,12 @@ const NavHeader = () => {
               className="searchbox"
               placeholder="Search"
               aria-label="Search"
-            /> 
-          
-            <img src="/searchicon2.png" width="28" height="28" alt="Search Icon" className="search-icon"/> 
+            />
+
+            <img src="/searchicon2.png" width="28" height="28" alt="Search Icon" className="search-icon" />
           </div>
-        </div>        
-        
+        </div>
+
         {/* Top Navigation */}
         <div className="topnav container">
           <a href="/">Home</a>
