@@ -10,14 +10,18 @@ export interface ProposalDetails {
     businessProgram: string;
     account: string;
     proposalManager: string;
-    technicalLead: string;
+    solicitationStatus: string;
     contractName: string;
+    contractVehicle: string;
     contractType: string;
     proposalType: string;
-    artifactType: string; // Updated to match search dropdown options
+    artifactType: string;
     evaluationScore: string;
     riskLevel: string;
+    govWinId: string;
+
 }
+
 
 export const sampleProposalDetails: ProposalDetails[] = [
     {
@@ -33,14 +37,15 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'Enterprise Modernization Program',
         account: 'Enterprise Clients - North America',
         proposalManager: 'Sarah Johnson',
-        technicalLead: 'Michael Chen',
+        solicitationStatus: "Active (Accepting Bids)",
         contractName: 'Digital Services Modernization Contract',
+        contractVehicle: 'GSA',
         contractType: 'Fixed Price',
         proposalType: 'Technical Response',
         artifactType: 'Gold Standard',
         evaluationScore: '92/100',
         riskLevel: 'Medium',
-
+        govWinId: "OPP147837"
     },
 
     {
@@ -56,13 +61,15 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'AI Innovation Program',
         account: 'Finance & Reporting',
         proposalManager: 'David Thompson',
-        technicalLead: 'Emily Carter',
+        solicitationStatus: "Active (Accepting Bids)",
         contractName: 'AI Decision Support Contract',
+        contractVehicle: 'IDIQ',
         contractType: 'Time & Materials',
         proposalType: 'Technical + Cost Volume',
         artifactType: 'Oral Presentation',
         evaluationScore: '88/100',
-        riskLevel: 'Low'
+        riskLevel: 'Low',
+        govWinId: "P147837"
     },
 
     {
@@ -78,13 +85,15 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'Cloud Modernization Program',
         account: 'Infrastructure Services',
         proposalManager: 'Linda Martinez',
-        technicalLead: 'Robert Singh',
+        solicitationStatus: "Draft",
         contractName: 'Cloud Readiness Assessment Contract',
+        contractVehicle: 'GWAC',
         contractType: 'Cost Plus',
         proposalType: 'Technical Response',
         artifactType: 'Full Project',
         evaluationScore: '94/100',
-        riskLevel: 'High'
+        riskLevel: 'High',
+        govWinId: "FBO582914"
     },
 
     {
@@ -100,19 +109,22 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'Workflow Automation Program',
         account: 'Analytics & Insights',
         proposalManager: 'Kevin Brooks',
-        technicalLead: 'Sophia Patel',
+        solicitationStatus: "Draft",
         contractName: 'Workflow Automation Contract',
+        contractVehicle: 'GSA',
         contractType: 'Fixed Price',
         proposalType: 'Technical + Management Volume',
         artifactType: 'Gold Standard',
         evaluationScore: '89/100',
-        riskLevel: 'Low'
+        riskLevel: 'Low',
+        govWinId: "TNS103984"
     },
 
     {
         id: '5',
         name: 'Advanced Analytics Platform Proposal',
         projectId: 'PROP-2025-005',
+        govWinId: "BID948202",
         submissionDate: 'June 6, 2025',
         dueDate: 'June 30, 2025',
         description:
@@ -122,8 +134,9 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'Advanced Analytics Program',
         account: 'AI & Automation',
         proposalManager: 'Jessica Lee',
-        technicalLead: 'Daniel Rivera',
+        solicitationStatus: "Draft",
         contractName: 'Advanced Analytics Platform Contract',
+        contractVehicle: 'IDIQ',
         contractType: 'Time & Materials',
         proposalType: 'Technical Response',
         artifactType: 'Project Graphic',
@@ -135,6 +148,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         id: '6',
         name: 'Infrastructure Resilience Upgrade Proposal',
         projectId: 'PROP-2025-006',
+        govWinId: "OPP147838",
         submissionDate: 'September 14, 2025',
         dueDate: 'October 5, 2025',
         description:
@@ -144,8 +158,10 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'Resilience Engineering Program',
         account: 'Enterprise Infrastructure',
         proposalManager: 'Mark Davis',
-        technicalLead: 'Priya Nair',
+        solicitationStatus: "Awarded",
+
         contractName: 'Infrastructure Resilience Contract',
+        contractVehicle: 'GWAC',
         contractType: 'Cost Plus',
         proposalType: 'Technical + Past Performance',
         artifactType: 'Past Performance',
@@ -157,6 +173,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         id: '7',
         name: 'AI Compliance and Governance Proposal',
         projectId: 'PROP-2026-007',
+        govWinId: "FBO582915",
         submissionDate: 'January 9, 2026',
         dueDate: 'January 30, 2026',
         description:
@@ -166,8 +183,9 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'AI Governance Program',
         account: 'Federal Agencies',
         proposalManager: 'Rachel Kim',
-        technicalLead: 'Anthony Rogers',
+        solicitationStatus: "Closed / Under Evaluation",
         contractName: 'AI Governance Contract',
+        contractVehicle: 'BPA',
         contractType: 'Fixed Price',
         proposalType: 'Technical Response',
         artifactType: 'Oral Presentation',
@@ -179,6 +197,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         id: '8',
         name: 'Unified DevSecOps Pipeline Proposal',
         projectId: 'PROP-2026-008',
+        govWinId: "TNC103985",
         submissionDate: 'April 3, 2026',
         dueDate: 'April 25, 2026',
         description:
@@ -188,8 +207,9 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'DevSecOps Modernization Program',
         account: 'Operations & Reporting',
         proposalManager: 'Olivia Turner',
-        technicalLead: 'Jason Wu',
+        solicitationStatus: "Cancelled / Archived",
         contractName: 'DevSecOps Pipeline Contract',
+        contractVehicle: 'IDIQ',
         contractType: 'Time & Materials',
         proposalType: 'Technical + Security Volume',
         artifactType: 'Gold Standard',
@@ -201,6 +221,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         id: '9',
         name: 'High-Availability Cloud Architecture Proposal',
         projectId: 'PROP-2026-009',
+        govWinId: "OPP147839",
         submissionDate: 'July 22, 2026',
         dueDate: 'August 10, 2026',
         description:
@@ -212,6 +233,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         proposalManager: 'Ethan Moore',
         technicalLead: 'Chloe Ramirez',
         contractName: 'High-Availability Cloud Contract',
+        contractVehicle: 'GWAC',
         contractType: 'Fixed Price',
         proposalType: 'Technical Response',
         artifactType: 'Project Graphic',
@@ -223,6 +245,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         id: '10',
         name: 'Enterprise Data Governance Proposal',
         projectId: 'PROP-2026-010',
+        govWinId: "BID948203",
         submissionDate: 'September 5, 2026',
         dueDate: 'September 30, 2026',
         description:
@@ -234,6 +257,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         proposalManager: 'Isabella Green',
         technicalLead: 'Liam Carter',
         contractName: 'Enterprise Data Governance Contract',
+        contractVehicle: 'BPA',
         contractType: 'Cost Plus',
         proposalType: 'Technical + Management Volume',
         artifactType: 'Full Project',

@@ -17,68 +17,60 @@ import "../styles/default.css";
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
-  // Extract parameters matching the form field names
+  // Extract parameters matching form fields
   const keywords = (url.searchParams.get("keywords") ?? "").trim().toLowerCase();
-  const capability = (url.searchParams.get("capabilities") ?? url.searchParams.get("capability") ?? "").trim().toLowerCase();
-  const artifact = (url.searchParams.get("artifact") ?? url.searchParams.get("artifacts") ?? "").trim().toLowerCase();
-  const tools = (url.searchParams.get("tools") ?? url.searchParams.get("tool") ?? "").trim().toLowerCase();
-  const govWinId = (url.searchParams.get("govwinId") ?? url.searchParams.get("projectId") ?? "").trim().toLowerCase();
+  const contractVehicle = (url.searchParams.get("contractVehicle") ?? "").trim().toLowerCase();
+  const contractType = (url.searchParams.get("contractType") ?? "").trim().toLowerCase();
+  const projectId = (url.searchParams.get("projectId") ?? url.searchParams.get("govwinId") ?? "").trim().toLowerCase();
+  const solicitationStatus = (url.searchParams.get("solicitationStatus") ?? "").trim().toLowerCase();
   const customer = (url.searchParams.get("customers") ?? url.searchParams.get("customer") ?? "").trim().toLowerCase();
-  const submittedWithin = url.searchParams.get("submittedWithin"); // gets "1", "2", or "3"
-
+  const submittedWithin = url.searchParams.get("submittedWithin");
 
   let results: ProposalDetails[] = sampleProposalDetails;
 
-  // Filter: Keywords (General Search across Name, Description, Group, Managers)
+  // Filter: Keywords (General Search)
   if (keywords) {
     results = results.filter(
       (p) =>
         p.name.toLowerCase().includes(keywords) ||
         p.description.toLowerCase().includes(keywords) ||
         p.proposalManager.toLowerCase().includes(keywords) ||
-        p.technicalLead.toLowerCase().includes(keywords) ||
         p.group.toLowerCase().includes(keywords)
     );
   }
 
-  // Filter: Capabilities (Searches Group, Business Program, Proposal Type, and Description)
-  if (capability) {
+  // Filter: Contract Vehicle
+  if (contractVehicle) {
+    results = results.filter(
+      (p) => p.contractVehicle && p.contractVehicle.toLowerCase().includes(contractVehicle)
+    );
+  }
+
+  // Filter: Contract Type
+  if (contractType) {
+    results = results.filter(
+      (p) => p.contractType && p.contractType.toLowerCase().includes(contractType)
+    );
+  }
+
+  // Filter: Solicitation / Proposal ID / GovWin ID
+  if (projectId) {
     results = results.filter(
       (p) =>
-        p.group.toLowerCase().includes(capability) ||
-        p.businessProgram.toLowerCase().includes(capability) ||
-        p.proposalType.toLowerCase().includes(capability) ||
-        p.description.toLowerCase().includes(capability)
+        p.projectId.toLowerCase().includes(projectId) ||
+        (p.govWinId && p.govWinId.toLowerCase().includes(projectId)) ||
+        p.id.toLowerCase().includes(projectId)
     );
   }
 
-  // Filter: Proposal Artifacts (Exact or partial match against artifactType)
-  if (artifact) {
+  // Filter: Solicitation Status
+  if (solicitationStatus) {
     results = results.filter(
-      (p) => p.artifactType.toLowerCase().includes(artifact)
+      (p) => p.solicitationStatus && p.solicitationStatus.toLowerCase().includes(solicitationStatus)
     );
   }
 
-  // Filter: Tools (Searches Technical Lead, Description, and Name)
-  if (tools) {
-    results = results.filter(
-      (p) =>
-        p.name.toLowerCase().includes(tools) ||
-        p.description.toLowerCase().includes(tools) ||
-        p.technicalLead.toLowerCase().includes(tools)
-    );
-  }
-
-  // Filter: GovWin ID / Project ID
-  if (govWinId) {
-    results = results.filter(
-      (p) =>
-        p.projectId.toLowerCase().includes(govWinId) ||
-        p.id.toLowerCase().includes(govWinId)
-    );
-  }
-
-  // Filter: Customers (Searches Account and Customer fields)
+  // Filter: Customers
   if (customer) {
     results = results.filter(
       (p) =>
@@ -87,12 +79,11 @@ export async function loader({ request }: { request: Request }) {
     );
   }
 
-  // sUBMISSION DATE
+  // Filter: Submission Date
   if (submittedWithin) {
     const yearsBack = parseInt(submittedWithin, 10);
     if (!isNaN(yearsBack)) {
       const now = new Date();
-      // Subtracts N years from today's date
       const cutoffDate = new Date(
         now.getFullYear() - yearsBack,
         now.getMonth(),
@@ -108,14 +99,14 @@ export async function loader({ request }: { request: Request }) {
 
   return {
     keywords,
-    capability,
-    artifact,
-    tools,
-    govWinId,
+    contractVehicle,
+    contractType,
+    projectId,
+    solicitationStatus,
     customer,
+    submittedWithin,
     total: results.length,
     results,
-    submittedWithin
   };
 }
 
@@ -139,36 +130,8 @@ export default function ProposalResults() {
         <ProjHeader />
       </div>
 
-      <div className="projects-container">
-        {/* LEFT SIDEBAR */}
-        <aside className="projects-sidebar">
-          <div className="refinement-panel">
-            <h2 className="zone-title">Group</h2>
-            <ul className="refinement-list">
-              <li>Software Engineering</li>
-              <li>Business Intelligence Group</li>
-              <li>Infrastructure Team</li>
-            </ul>
-          </div>
+      <div className="projectshome-container">
 
-          <div className="refinement-panel">
-            <h2 className="zone-title">Contract Type</h2>
-            <ul className="refinement-list">
-              <li>Fixed Price</li>
-              <li>Time & Materials</li>
-              <li>Cost Plus</li>
-            </ul>
-          </div>
-
-          <div className="refinement-panel">
-            <h2 className="zone-title">Customer</h2>
-            <ul className="refinement-list">
-              <li>Acme Corporation</li>
-              <li>Global Finance Partners</li>
-              <li>Federal Agencies</li>
-            </ul>
-          </div>
-        </aside>
 
         {/* MAIN CONTENT */}
         <main className="projects-main">
@@ -207,20 +170,21 @@ export default function ProposalResults() {
                   </h3>
 
                   <p style={{ margin: "2px 0", color: "#555", fontSize: "0.9rem" }}>
-                    <strong>Project ID:</strong> {proposal.projectId} | <strong>Customer:</strong> {proposal.customer}
+                    <strong>Proposal ID:</strong> {proposal.projectId} | <strong>Customer:</strong> {proposal.customer}
                   </p>
 
                   {/* Metadata Row with Artifact */}
                   <p style={{ margin: "2px 0", color: "#666", fontSize: "0.85rem" }}>
-                    <strong>Author:</strong> {proposal.group || proposal.proposalManager} |{" "}
-                    <strong>Artifact:</strong> {proposal.artifactType || "N/A"} |{" "}
+                    <strong>Solicitation Status:</strong> {proposal.solicitationStatus} |{" "}
+
                     <strong>Date:</strong> {proposal.submissionDate} |{" "}
-                    <strong>Evaluation Score:</strong> {proposal.evaluationScore}
+                    <strong>Contract Type:</strong> {proposal.contractType} |{" "}
+                    <strong>Contract Vehicle:</strong> {proposal.contractVehicle}
                   </p>
 
                   <p style={{ margin: "6px 0", fontSize: "0.95rem" }}>{proposal.description}</p>
 
-                  <p style={{ margin: "2px 0", fontSize: "0.85rem", color: "#2b6cb0" }}>
+                  <p style={{ margin: "2px 0", fontSize: "0.85rem", color: "#3F688C" }}>
                     <code>/Proposals/2026/{proposal.projectId.toLowerCase()}.pdf</code>
                   </p>
                 </div>
@@ -230,7 +194,7 @@ export default function ProposalResults() {
         </main>
 
         {/* RIGHT SIDEBAR */}
-        <aside className="right-sidebar-container">
+        <aside className="righthome-sidebar-container">
           <div className="sidebar right-sidebar">
             <div className="refinement-panel">
               <h2 className="zone-title">Proposal Contacts</h2>

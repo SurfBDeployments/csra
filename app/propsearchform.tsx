@@ -1,15 +1,6 @@
-
 import { useSearchParams } from "react-router";
 
-interface NavLink {
-  label: string;
-  href: string;
-  id?: string;
-}
-
 const PropSearchForm = () => {
-
-
   return (
     <>
       <article className="search-article">
@@ -43,30 +34,41 @@ const PropSearchForm = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="capabilities" className="form-label">Capabilities:</label>
-                <input type="text" id="capabilities" name="capabilities" placeholder="Enter capabilities" />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="artifact" className="form-label">Proposal Artifacts:</label>
-                <select id="artifact" name="artifact">
-                  <option value="">All Artifacts</option>
-                  <option value="Full Project">Full Project</option>
-                  <option value="Gold Standard">Gold Standard</option>
-                  <option value="Oral Presentation">Oral Presentation</option>
-                  <option value="Past Performance">Past Performance</option>
-                  <option value="Project Graphic">Project Graphic</option>
+                <label htmlFor="contractVehicle" className="form-label">Contract Vehicle:</label>
+                <select id="contractVehicle" name="contractVehicle">
+                  <option value="">Select Contract Vehicle</option>
+                  <option value="IDIQ">IDIQ</option>
+                  <option value="GSA">GSA</option>
+                  <option value="BPA">BPA</option>
+                  <option value="GWAC">GWAC</option>
                 </select>
               </div>
 
               <div className="form-group">
-                <label htmlFor="tools" className="form-label">Tools:</label>
-                <input type="text" id="tools" name="tools" placeholder="Enter tools" />
+                <label htmlFor="contractType" className="form-label">Contract Type:</label>
+                <select id="contractType" name="contractType">
+                  <option value="">Select Contract Type</option>
+                  <option value="Fixed Price">Fixed Price</option>
+                  <option value="Time & Materials">Time & Materials</option>
+                  <option value="Cost Plus">Cost Plus</option>
+                </select>
               </div>
 
               <div className="form-group">
-                <label htmlFor="govwinId" className="form-label">GovWin ID:</label>
-                <input type="text" id="govwinId" name="govwinId" placeholder="Enter GovWin ID" />
+                <label htmlFor="projectId" className="form-label">Solicitation / Proposal ID:</label>
+                <input type="text" id="projectId" name="projectId" placeholder="Solicitation or Proposal Number" />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="solicitationStatus" className="form-label">Solicitation Status:</label>
+                <select id="solicitationStatus" name="solicitationStatus">
+                  <option value="">Select Status</option>
+                  <option value="Draft">Draft</option>
+                  <option value="Active (Accepting Bids)">Active (Accepting Bids)</option>
+                  <option value="Closed / Under Evaluation">Closed / Under Evaluation</option>
+                  <option value="Awarded">Awarded</option>
+                  <option value="Cancelled / Archived">Cancelled / Archived</option>
+                </select>
               </div>
 
               <div className="form-group">

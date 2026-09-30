@@ -18,19 +18,10 @@ import "../styles/default.css";
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
-  /*   const govWinId = (
-      url.searchParams.get("govwinId") ??
-      url.searchParams.get("govWinId") ??
-      url.searchParams.get("projectId") ??
-      ""
-    ).trim().toLowerCase();
-  
-    // ...
-  } */
 
   const keywords = (url.searchParams.get("keywords") ?? "").trim().toLowerCase();
   const capability = (url.searchParams.get("capabilities") ?? url.searchParams.get("capability") ?? "").trim().toLowerCase();
-  const artifact = (url.searchParams.get("artifact") ?? url.searchParams.get("artifacts") ?? "").trim().toLowerCase();
+  const contractType = (url.searchParams.get("contractType") ?? url.searchParams.get("contractType") ?? "").trim().toLowerCase();
   const tools = (url.searchParams.get("tools") ?? url.searchParams.get("tool") ?? "").trim().toLowerCase();
   const govWinId = (url.searchParams.get("govwinId") ?? url.searchParams.get("govwinId") ?? "").trim().toLowerCase();
   const customer = (url.searchParams.get("customers") ?? url.searchParams.get("customer") ?? "").trim().toLowerCase();
@@ -84,9 +75,9 @@ export async function loader({ request }: { request: Request }) {
   }
 
   // Filter: Artifacts
-  if (artifact) {
+  if (contractType) {
     results = results.filter(
-      (p) => p.artifactType.toLowerCase().includes(artifact)
+      (p) => p.contractType.toLowerCase().includes(contractType)
     );
   }
 
@@ -122,7 +113,7 @@ export async function loader({ request }: { request: Request }) {
   return {
     keywords,
     capability,
-    artifact,
+    contractType,
     tools,
     govWinId,
     customer,
@@ -225,7 +216,7 @@ export default function ProjectResults() {
 
                   <p style={{ margin: "2px 0", color: "#666", fontSize: "0.85rem" }}>
                     <strong>Author:</strong> {project.group || project.projectManager} |{" "}
-                    <strong>Artifact:</strong> {project.artifactType || "N/A"} |{" "}
+                    <strong>Artifact:</strong> {project.contractTypeType || "N/A"} |{" "}
                     <strong>Date:</strong> {project.submissionDate} |{" "}
                     <strong>Project Size:</strong> {project.projectSize}
                   </p>

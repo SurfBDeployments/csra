@@ -77,7 +77,7 @@ h3 {
 
 .topnav,
 .topnav a {
-  font-family: Helvetica, sans-serif;
+  font-family: Public Sans, sans-serif;
   font-size: .875rem;
   font-weight: 700;
   color: #053c5c;
@@ -116,7 +116,7 @@ footer a {
 
 body {
 
-  font-family: Helvetica, sans-serif;
+  font-family: Public Sans, sans-serif;
   color: #333;
   background-color: #f5f5f5;
   line-height: 1.6;

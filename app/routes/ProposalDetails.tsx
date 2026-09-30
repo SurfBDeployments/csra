@@ -87,8 +87,8 @@ export default function ProposalDetails() {
               </section>
 
               <section>
-                <h4>Technical Lead</h4>
-                <p>{proposal.technicalLead}</p>
+                <h4>Solicitation Status</h4>
+                <p>{proposal.solicitationStatus}</p>
               </section>
 
               <section>
@@ -100,6 +100,20 @@ export default function ProposalDetails() {
                 <h4>Risk Level</h4>
                 <p>{proposal.riskLevel}</p>
               </section>
+              <section>
+                <h4>Contract Type</h4>
+                <p>{proposal.contractType}</p>
+              </section>
+              <section>
+                <h4>Contract Vehicle</h4>
+                <p>{proposal.contractVehicle}</p>
+              </section>
+              <section>
+                <h4>Proposal Type</h4>
+                <p>{proposal.proposalType}</p>
+              </section>
+
+
             </div>
 
             <div style={{ marginTop: "20px", textAlign: "center" }}>
