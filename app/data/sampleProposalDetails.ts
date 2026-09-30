@@ -231,7 +231,7 @@ export const sampleProposalDetails: ProposalDetails[] = [
         businessProgram: 'Cloud Architecture Program',
         account: 'Internal Systems',
         proposalManager: 'Ethan Moore',
-        technicalLead: 'Chloe Ramirez',
+        solicitationStatus: "Awarded",
         contractName: 'High-Availability Cloud Contract',
         contractVehicle: 'GWAC',
         contractType: 'Fixed Price',
