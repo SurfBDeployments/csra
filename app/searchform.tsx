@@ -52,7 +52,7 @@ const SearchForm = () => {
 
               <div className="form-group">
                 <label htmlFor="artifact" className="form-label">Project Artifacts:</label>
-                <select id="artifact" name="artifact">
+                <select id="artifactType" name="artifactType">
                   <option value="">All Artifacts</option>
                   <option value="Full Project">Full Project</option>
                   <option value="Gold Standard">Gold Standard</option>

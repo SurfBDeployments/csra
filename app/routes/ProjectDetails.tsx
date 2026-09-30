@@ -44,9 +44,6 @@ export default function ProjectDetails() {
             <div className="project-header">
               <h2>{project.name}</h2>
 
-              <div className="data">
-                <strong>Project ID:</strong> {project.id}
-              </div>
 
               <div className="data">
                 <strong>Project ID:</strong> {project.projectId}
@@ -75,6 +72,14 @@ export default function ProjectDetails() {
                 <h4>Group</h4>
                 <p>{project.group}</p>
               </section>
+              <section>
+                <h4>Business Program</h4>
+                <p>{project.businessProgram}</p>
+              </section>
+              <section>
+                <h4>Account</h4>
+                <p>{project.account}</p>
+              </section>
 
               <section>
                 <h4>Contract Name</h4>
@@ -87,13 +92,17 @@ export default function ProjectDetails() {
               </section>
 
               <section>
-                <h4>Technical Lead</h4>
-                <p>{project.technicalLead}</p>
+                <h4>Project Size</h4>
+                <p>{project.projectSize}</p>
               </section>
 
               <section>
                 <h4>Capabilities</h4>
                 <p>{project.capabilities}</p>
+              </section>
+              <section>
+                <h4>Tools</h4>
+                <p>{project.tools}</p>
               </section>
 
               <section>

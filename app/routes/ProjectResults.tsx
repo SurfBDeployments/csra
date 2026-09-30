@@ -21,7 +21,7 @@ export async function loader({ request }: { request: Request }) {
 
   const keywords = (url.searchParams.get("keywords") ?? "").trim().toLowerCase();
   const capability = (url.searchParams.get("capabilities") ?? url.searchParams.get("capability") ?? "").trim().toLowerCase();
-  const contractType = (url.searchParams.get("contractType") ?? url.searchParams.get("contractType") ?? "").trim().toLowerCase();
+  const artifactType = (url.searchParams.get("artifactType") ?? url.searchParams.get("artifactType") ?? "").trim().toLowerCase();
   const tools = (url.searchParams.get("tools") ?? url.searchParams.get("tool") ?? "").trim().toLowerCase();
   const govWinId = (url.searchParams.get("govwinId") ?? url.searchParams.get("govwinId") ?? "").trim().toLowerCase();
   const customer = (url.searchParams.get("customers") ?? url.searchParams.get("customer") ?? "").trim().toLowerCase();
@@ -75,9 +75,9 @@ export async function loader({ request }: { request: Request }) {
   }
 
   // Filter: Artifacts
-  if (contractType) {
+  if (artifactType) {
     results = results.filter(
-      (p) => p.contractType.toLowerCase().includes(contractType)
+      (p) => p.artifactType.toLowerCase().includes(artifactType)
     );
   }
 
@@ -113,7 +113,7 @@ export async function loader({ request }: { request: Request }) {
   return {
     keywords,
     capability,
-    contractType,
+    artifactType,
     tools,
     govWinId,
     customer,
@@ -142,37 +142,8 @@ export default function ProjectResults() {
         </p>
         <ProjHeader />
       </div>
+      <div className="projectshome-container">
 
-      <div className="projects-container">
-        {/* LEFT SIDEBAR */}
-        <aside className="projects-sidebar">
-          <div className="refinement-panel">
-            <h2 className="zone-title">Group</h2>
-            <ul className="refinement-list">
-              <li>Software Engineering</li>
-              <li>Business Intelligence Group</li>
-              <li>Infrastructure Team</li>
-            </ul>
-          </div>
-
-          <div className="refinement-panel">
-            <h2 className="zone-title">Contract Type</h2>
-            <ul className="refinement-list">
-              <li>Fixed Price</li>
-              <li>Time & Materials</li>
-              <li>Cost Plus</li>
-            </ul>
-          </div>
-
-          <div className="refinement-panel">
-            <h2 className="zone-title">Customer</h2>
-            <ul className="refinement-list">
-              <li>Acme Corporation</li>
-              <li>Global Finance Partners</li>
-              <li>Federal Agencies</li>
-            </ul>
-          </div>
-        </aside>
 
         {/* MAIN CONTENT */}
         <main className="projects-main">
@@ -216,7 +187,7 @@ export default function ProjectResults() {
 
                   <p style={{ margin: "2px 0", color: "#666", fontSize: "0.85rem" }}>
                     <strong>Author:</strong> {project.group || project.projectManager} |{" "}
-                    <strong>Artifact:</strong> {project.contractTypeType || "N/A"} |{" "}
+                    <strong>Artifact:</strong> {project.artifactType || "N/A"} |{" "}
                     <strong>Date:</strong> {project.submissionDate} |{" "}
                     <strong>Project Size:</strong> {project.projectSize}
                   </p>
@@ -233,7 +204,7 @@ export default function ProjectResults() {
         </main>
 
         {/* RIGHT SIDEBAR */}
-        <aside className="right-sidebar-container">
+        <aside className="righthome-sidebar-container">
           <div className="sidebar right-sidebar">
             <div className="refinement-panel">
               <h2 className="zone-title">Project Contacts</h2>
