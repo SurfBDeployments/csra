@@ -77,7 +77,7 @@ h3 {
 
 .topnav,
 .topnav a {
-  font-family: Public Sans, sans-serif;
+
   font-size: .875rem;
   font-weight: 700;
   color: #053c5c;
@@ -89,9 +89,21 @@ h3 {
 
 
 .topnav a:hover {
+  color: #4975a2;
 
-  color: #66869a;
+}
 
+
+/* Persistent active link class */
+.topnav a.active,
+.topnav a.active:visited {
+  color: #4975a2 !important;
+  border-bottom: solid;
+}
+
+.topnav a.active:visited a:hover {
+  color: #053c5c;
+  text-decoration: none;
 }
 
 .searchbox {
@@ -666,11 +678,7 @@ footer p {
     margin: 5px;
   }
 
-  .topnav a:active {
-    font-size: .875rem;
-    text-decoration: underline;
-    margin: 5px;
-  }
+
 
   .topnav a:hover {
     font-size: .875rem;

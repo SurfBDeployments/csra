@@ -12,7 +12,7 @@ const PropHeader = () => {
     <>
 
       <nav aria-label="Main navigation">
-        <p className="searchlinks"><a href="#">Corporate Sites</a> | <a href="/projects">Projects</a> | <a href="#">People</a> | <a href="/proposal" className="searchon">Proposals</a> |  <a href="#">Corporate Documents</a> | <a href="#">Resumes</a> | <a href="#">Policies &amp; Guidelines</a> | <a href="#">Advanced</a></p>
+        <p className="searchlinks"><a href="/projects">Projects</a> | <a href="/proposal" className="searchon">Proposals</a> </p>
       </nav>
 
 

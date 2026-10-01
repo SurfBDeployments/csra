@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import MediaControlCard from './videocard';
 import Footer from '~/footer';
 import type { Route } from "./+types/home";
+import { useLocation } from "react-router";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -44,16 +45,20 @@ const format = (seconds: number): string => {
 function HomePage() {
   // ...
   const [likes, setlikes] = useState(0);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   function handleClick() {
     setlikes(likes + 1);
   }
 
   const topNavLinks: NavLink[] = [
+
     { label: 'Our Org', href: '#' },
     { label: 'What We Do', href: '#' },
     { label: 'Winning Work', href: '#' },
     { label: 'Projects & Proposals', href: '/projects' },
+    { label: 'Proposals', href: '/proposal' },
     { label: 'Collab & Community', href: '#' },
     { label: 'Benefits & Comp', href: '#' },
     { label: 'Careers', href: '#' },
@@ -138,9 +143,15 @@ function HomePage() {
 
         {/* Top Navigation */}
         <div className="topnav container">
-          <a href="/">Home</a>
+          <a href="/" className={currentPath === '/' ? 'active' : ''}>
+            Home
+          </a>
           {topNavLinks.map((link) => (
-            <a key={link.label} href={link.href}>
+            <a
+              key={link.id ?? link.href}
+              href={link.href}
+              className={currentPath === link.href ? 'active' : ''}
+            >
               {link.label}
             </a>
           ))}
