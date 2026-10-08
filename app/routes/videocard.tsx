@@ -22,12 +22,14 @@ export default function MediaControlCard() {
   const embedUrl = "https://www.youtube.com/watch?v=F34Vlqtv0lQ?autoplay=1".replace('watch?v=', 'embed/');
 
   return (
-    <Card sx={{ display: 'inline-block' }}>
+
+    <Card>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent>
           <Typography variant="subtitle1" component="div" sx={{ color: 'text.secondary' }}>
-            <h3>Featured Video: CSRA Get Covered</h3>
-            <p>Congratulations to our <strong>Affordable Care Act program team</strong>...</p>
+            <h2>Featured Video: CSRA Get Covered</h2>
+            <div className="news-item">
+              <p>Congratulations to our <strong>Affordable Care Act program team</strong>...</p></div>
           </Typography>
         </CardContent>
       </Box>
@@ -36,7 +38,7 @@ export default function MediaControlCard() {
       {isPlaying ? (
         <CardMedia
           component="iframe"
-          sx={{ width: 800, height: 460, border: 0 }}
+          sx={{ width: 600, height: 460, border: 0, alignContent: "center" }}
           src={embedUrl}
           title="Affordable Care Act Video Player"
           allow="autoplay; encrypted-media"
@@ -45,7 +47,7 @@ export default function MediaControlCard() {
       ) : (
         <CardMedia
           component="img"
-          sx={{ width: 800, cursor: 'pointer' }}
+          sx={{ cursor: 'pointer' }}
           image="../../affordablecarescreen.png"
           onClick={() => setIsPlaying(true)}
           alt="Affordable Care Act Video Thumbnail"
@@ -71,6 +73,7 @@ export default function MediaControlCard() {
         </IconButton>
       </Box>
     </Card>
+
   );
 }
 

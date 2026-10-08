@@ -239,14 +239,14 @@ function HomePage() {
               <div className="news-section">
                 <div>
                   <div className="news-item">
-                    <h3>Company Announcements</h3>
+                    <h3> <a href="/highlights">Company Announcements</a></h3>
                     <p>
                       Stay up to date with the latest CSRA announcements, policy updates, and important company information. Check back regularly for updates.
                     </p>
                     <a href="/highlights">View All News →</a>
                   </div>
                   <div className="news-item">
-                    <a href="/infocus"><h4>Featured Story</h4></a>
+                    <a href="/infocus"><h3>Featured Story</h3></a>
                     <p>
                       CSRA highlights achievements and featured content from across the organization. Celebrate wins and learn from peers.
                     </p>
@@ -258,7 +258,7 @@ function HomePage() {
                   <div className="highlights">
 
                     <a href="/highlights">
-                      <h4>CSRA News Highlights</h4>
+                      <h3>CSRA News Highlights</h3>
                       <span>Excellence in Innovation</span>
                       <span>Committed to Success</span></a>
 
@@ -266,7 +266,7 @@ function HomePage() {
 
 
                   <div className="in-focus"> <a href="/infocus">
-                    <h4>CSRA InFocus</h4>
+                    <h3>CSRA InFocus</h3>
                     <span>Featured Content Updates</span></a>
                   </div>
 
@@ -280,10 +280,10 @@ function HomePage() {
 
 
 
-            <section className="video-section">
-              <MediaControlCard />
 
-            </section>
+            <MediaControlCard />
+
+
 
             {/* Social Media Section */}
             <section className="featured-section">
