@@ -277,12 +277,9 @@ function HomePage() {
 
 
             {/* Video Section */}
-
-
-
-
-            <MediaControlCard />
-
+            <div className="featured-section">
+              <MediaControlCard />
+            </div>
 
 
             {/* Social Media Section */}
