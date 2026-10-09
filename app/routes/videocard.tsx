@@ -39,7 +39,7 @@ export default function MediaControlCard() {
         <CardMedia
           component="iframe"
           sx={{
-            border: 0, alignContent: "center", width: "600", height: "auto"
+            border: 0, alignContent: "center", width: "600", height: "337"
           }}
           src={embedUrl}
           title="Affordable Care Act Video Player"
