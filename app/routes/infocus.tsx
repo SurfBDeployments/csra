@@ -80,28 +80,28 @@ function HomePage() {
         <div className="page-layout">
           {/* Sidebar */}
           <aside>
-               <section className="todo-section">
-            <h3>My CSRA</h3>
-            <ul>
-              {sidebarLinks.map((link) => (
+            <section className="todo-section">
+              <h3>My CSRA</h3>
+              <ul>
+                {sidebarLinks.map((link) => (
 
-                <li key={link.label}>
-                  <a href={link.href} target={link.href.startsWith('http') ? '_blank' : '_self'} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="ethics-hotline">
-              <strong>Ethics Hotline</strong>
-              <br />
-              <a href="https://secure.ethicspoint.com/" target="_blank" rel="noopener noreferrer">
-                Report Online
-              </a>
-              <br />
-              or call <strong>866-384-4277</strong>
-            </div>
-</section>
+                  <li key={link.label}>
+                    <a href={link.href} target={link.href.startsWith('http') ? '_blank' : '_self'} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="ethics-hotline">
+                <strong>Ethics Hotline</strong>
+                <br />
+                <a href="https://secure.ethicspoint.com/" target="_blank" rel="noopener noreferrer">
+                  Report Online
+                </a>
+                <br />
+                or call <strong>866-384-4277</strong>
+              </div>
+            </section>
 
             <section className="todo-section" style={{ marginTop: '20px' }}>
               <h3>Employee To-Do</h3>
@@ -220,7 +220,7 @@ function HomePage() {
                   Introduction of advanced cybersecurity training modules.
                 </li>
               </ul>
-              <div style={{paddingTop: '10px'}}>
+              <div style={{ paddingTop: '10px' }}>
                 Check out <a href='/highlights' className='newsitem'>CSRA highlights...</a>
               </div>
             </section>
@@ -229,27 +229,6 @@ function HomePage() {
 
             {/* Video Section */}
 
-
-
-
-            {/* Social Media Section */}
-            <section className="featured-section">
-
-              <h2>Connect With Us</h2>
-              <div className="social-media">
-                Follow CSRA on social media for company updates and news
-                <div className="social-icons">
-                  <img src="./socialicons.png" alt="Social Media" height="30" />
-                </div>
-
-
-                <Button variant="contained" onClick={handleClick} size="medium">Like ({likes})</Button>
-
-
-
-
-              </div>
-            </section>
           </main>
         </div>
 

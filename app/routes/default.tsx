@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import '../styles/default.css';
-import Button from '@mui/material/Button';
+
 import MediaControlCard from './videocard';
 import Footer from '~/footer';
 import type { Route } from "./+types/home";
 import { useLocation } from "react-router";
+import NavHeader from '~/navheader';
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -124,39 +125,7 @@ function HomePage() {
   return (
     <>
       {/* Header */}
-      <header>
-        <div className="container mx-auto py-4">
-
-          <img src="/csra-banner.png" alt="CSRA Banner" />
-          <div className="search">
-            <input
-              type="search"
-              name="search"
-              id="search"
-              className="searchbox"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <img src="/searchicon2.png" width="28" height="28" alt="Search Icon" className="search-icon" />
-          </div>
-        </div>
-
-        {/* Top Navigation */}
-        <div className="topnav container">
-          <a href="/" className={currentPath === '/' ? 'active' : ''}>
-            Home
-          </a>
-          {topNavLinks.map((link) => (
-            <a
-              key={link.id ?? link.href}
-              href={link.href}
-              className={currentPath === link.href ? 'active' : ''}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </header>
+      <NavHeader />
 
       {/* Main Container */}
       <div className="container">
@@ -282,24 +251,7 @@ function HomePage() {
             </div>
 
 
-            {/* Social Media Section */}
-            <section className="featured-section">
 
-              <h2>Connect With Us</h2>
-              <div className="social-media">
-                <p>Follow CSRA on social media for company updates and news</p>
-                <div className="social-icons">
-                  <p><img src="./socialicons.png" alt="Social Media" height="30" /></p>
-                </div>
-
-
-                <Button variant="contained" onClick={handleClick} size="medium">Like ({likes})</Button>
-
-
-
-
-              </div>
-            </section>
           </main>
         </div>
 

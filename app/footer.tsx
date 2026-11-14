@@ -1,31 +1,41 @@
 
+import { useState } from 'react';
+import { useLocation } from "react-router";
+import { Link } from 'react-router';
+
 
 const Footer = () => {
+  const [likes, setlikes] = useState(0);
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  function handleClick() {
+    setlikes(likes + 1);
+  }
   ;
 
   return (
     <>
+
+
+
+
       {/* Header */}
       <footer>
-        <p>&copy; 2026 Portfolio Project — UI Modernization of CSRA International</p>
+        {/* Social Media Section */}
+
+        <section className='footersect'>
+          <Link to="/" className="logo">
+            <img src="/csra-footer.png" alt="CSRA Banner" style={{ width: "auto", maxWidth: "100%", height: '85px', marginLeft: '-10px' }} />
+          </Link>
+
+
+
+        </section>
+
         <div className="footer-content">
           <div className="footer-column">
-            <div className="tocheader">
-              <strong>Emergency Hotline</strong>
-              <br />
-              Toll Free 888-467-7211
-            </div>
-            <div>
-              <strong>Emergency Resources</strong>
-            </div>
-            <div>
-              <a href="/support/emergency">First Responders</a>
-            </div>
-            <div>
-              <a href="/support/emergency">Emergency Procedures</a>
-            </div>
-          </div>
-          <div className="footer-column">
+
             <div className="tocheader">
               <a href="/org">Our Org</a>
             </div>
@@ -188,8 +198,14 @@ const Footer = () => {
 
           </div>
         </div>
+        <hr style={{ marginTop: '20px' }} />
 
+        <p>&copy; 2026 CSRA Portfolio Project — UI Modernization of CSRA International</p>
+        <div style={{ display: 'inline-flex' }}>
+          <p style={{ fontWeight: 'bold' }}>Follow Us
+            <img src="./socialicons_drk.png" alt="Social Media" style={{ height: '30px' }} /></p>
 
+        </div>
       </footer >
     </>
   );

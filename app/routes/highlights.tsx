@@ -81,27 +81,27 @@ function HomePage() {
           {/* Sidebar */}
           <aside>
             <section className="todo-section">
-            <h3>My CSRA</h3>
-            <ul>
-              {sidebarLinks.map((link) => (
+              <h3>My CSRA</h3>
+              <ul>
+                {sidebarLinks.map((link) => (
 
-                <li key={link.label}>
-                  <a href={link.href} target={link.href.startsWith('http') ? '_blank' : '_self'} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="ethics-hotline">
-              <strong>Ethics Hotline</strong>
-              <br />
-              <a href="https://secure.ethicspoint.com/" target="_blank" rel="noopener noreferrer">
-                Report Online
-              </a>
-              <br />
-              or call <strong>866-384-4277</strong>
-            </div>
-</section>
+                  <li key={link.label}>
+                    <a href={link.href} target={link.href.startsWith('http') ? '_blank' : '_self'} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="ethics-hotline">
+                <strong>Ethics Hotline</strong>
+                <br />
+                <a href="https://secure.ethicspoint.com/" target="_blank" rel="noopener noreferrer">
+                  Report Online
+                </a>
+                <br />
+                or call <strong>866-384-4277</strong>
+              </div>
+            </section>
 
             <section className="todo-section" style={{ marginTop: '20px' }}>
               <h3>Employee To-Do</h3>
@@ -142,7 +142,7 @@ function HomePage() {
                 <li className='bullets'>
                   <p><strong>Modernization Wins:</strong> Successful deployment of cloud‑ready infrastructure for federal partners, improving scalability and security.</p>
                 </li>
-               <li className='bullets'>
+                <li className='bullets'>
                   <p><strong>Cyber Resilience:</strong> Enhanced cybersecurity posture for multiple agencies through proactive threat detection and rapid response frameworks.</p>
                 </li>
                 <li className='bullets'>
@@ -157,7 +157,7 @@ function HomePage() {
                 <li className='bullets'>
                   <p><strong>Leadership in Action:</strong> Recognizing employees who demonstrate exceptional leadership in mission‑critical environments.</p>
                 </li>
-               <li className='bullets'>
+                <li className='bullets'>
                   <p><strong>Innovation Champions:</strong> Celebrating team members who introduce new ideas, tools, or methods that elevate client outcomes.</p>
                 </li>
                 <li className='bullets'>
@@ -175,7 +175,7 @@ function HomePage() {
                 <li className='bullets'>
                   <p><strong>High‑Impact Results:</strong> Achieved measurable improvements in service delivery, system performance, and mission support.</p>
                 </li>
-              <li className='bullets'>
+                <li className='bullets'>
                   <p><strong>Client Satisfaction:</strong> Positive feedback from partners acknowledging CSRA&rsquo;s reliability, responsiveness, and commitment to excellence.</p>
                 </li>
               </ul>
@@ -184,7 +184,7 @@ function HomePage() {
               </div>
               <h2>Operational Improvements</h2>
               <ul data-tight="true">
-               <li className='bullets'>
+                <li className='bullets'>
                   <strong>Process Optimization:</strong> Introduced new internal frameworks that enhance project tracking, reporting, and quality assurance.
                 </li>
                 <li className='bullets'>
@@ -199,13 +199,13 @@ function HomePage() {
               </div>
               <h2>Recognition &amp; Awards</h2>
               <ul data-tight="true">
-             <li className='bullets'>
+                <li className='bullets'>
                   <strong>Industry Honors:</strong> Awards for innovation, cybersecurity leadership, and outstanding government service.
                 </li>
                 <li className='bullets'>
                   <strong>Team Achievements:</strong> Celebrations of cross‑functional teams who delivered exceptional results on high‑visibility projects.
                 </li>
-             <li className='bullets'>
+                <li className='bullets'>
                   <strong>Community Impact:</strong> Recognition for volunteer efforts and community engagement initiatives.
                 </li>
               </ul>
@@ -214,39 +214,18 @@ function HomePage() {
               </div>
               <h2>Upcoming Success‑Driven Initiatives</h2>
               <ul data-tight="true">
-              <li className='bullets'>
+                <li className='bullets'>
                   Expansion of mission‑critical support programs.
                 </li>
                 <li className='bullets'>
                   New innovation labs focused on emerging technologies.
                 </li>
-               <li className='bullets'>
+                <li className='bullets'>
                   Enhanced client engagement strategies to strengthen collaboration and transparency.
                 </li>
               </ul>
-                   <div style={{paddingTop: '10px'}}>
+              <div style={{ paddingTop: '10px' }}>
                 Check out <a href='/infocus' className="newsitem">Featured Content Updates...</a>
-              </div>
-            </section>
-
-
-
-            {/* Social Media Section */}
-            <section className="featured-section">
-
-              <h2>Connect With Us</h2>
-              <div className="social-media">
-                <p>Follow CSRA on social media for company updates and news</p>
-                <div className="social-icons">
-                  <p><img src="./socialicons.png" alt="Social Media" height="30" /></p>
-                </div>
-
-
-                <Button variant="contained" onClick={handleClick} size="medium">Like ({likes})</Button>
-
-
-
-
               </div>
             </section>
           </main>

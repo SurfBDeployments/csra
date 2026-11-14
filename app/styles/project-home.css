@@ -465,7 +465,7 @@ button {
   font-size: .875rem;
   cursor: pointer;
   background-color: #003366;
-  color: #ededed !important;
+  color: #ededed;
   border: #ccc 1px outset;
   height: 36px;
   margin: 5px;
@@ -478,7 +478,7 @@ button a {
   font-size: .875rem;
   cursor: pointer;
   background-color: #003366;
-  color: #ededed !important;
+  color: #ededed;
 
 }
 
