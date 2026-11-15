@@ -5,8 +5,8 @@ import fs from 'fs-extra';
 import path from 'path';
 
 test('homepage accessibility report', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
-  await page.waitForLoadState('networkidle');
+  await page.goto('http://localhost:5173/', { waitUntil: 'domcontentloaded' });
+  await page.locator('body').waitFor();
 
   const results: AxeResults = await new AxeBuilder({ page }).analyze();
 

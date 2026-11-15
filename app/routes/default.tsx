@@ -1,10 +1,9 @@
-import { useState } from 'react';
+
 import '../styles/default.css';
 
 import MediaControlCard from './videocard';
 import Footer from '~/footer';
 import type { Route } from "./+types/home";
-import { useLocation } from "react-router";
 import NavHeader from '~/navheader';
 
 export function meta({ }: Route.MetaArgs) {
@@ -44,27 +43,8 @@ const format = (seconds: number): string => {
   }
 };
 function HomePage() {
-  // ...
-  const [likes, setlikes] = useState(0);
-  const location = useLocation();
-  const currentPath = location.pathname;
 
-  function handleClick() {
-    setlikes(likes + 1);
-  }
 
-  const topNavLinks: NavLink[] = [
-
-    { label: 'Our Org', href: '#' },
-    { label: 'What We Do', href: '#' },
-    { label: 'Winning Work', href: '#' },
-    { label: "Projects", href: "/projects" },
-    { label: "Proposals", href: "/proposal" },
-    { label: 'Collab & Community', href: '#' },
-    { label: 'Benefits & Comp', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'News', href: '/highlights' },
-  ];
 
   const sidebarLinks: NavLink[] = [
     { label: 'Wellness Program', href: '/benefits/wellness' },

@@ -155,6 +155,7 @@ export default function NavHeader() {
                                     href={link.href}
                                     onClick={handleDrawerToggle}
                                     sx={{
+                                        fontSize: '24px',
                                         py: .5,
                                         px: 1,
                                         backgroundColor: isActive ? 'rgba(0, 51, 102, 0.08)' : 'transparent',
@@ -163,10 +164,12 @@ export default function NavHeader() {
                                 >
                                     <ListItemText
                                         primary={link.label}
-                                        primaryTypographyProps={{
-                                            fontWeight: isActive ? 700 : 500,
-                                            fontSize: '1rem',
-                                            color: '#003366',
+                                        sx={{
+                                            '& .MuiListItemText-primary': {
+                                                fontWeight: isActive ? 700 : 500,
+                                                fontSize: '1rem',
+                                                color: '#003366',
+                                            },
                                         }}
                                     />
                                 </ListItemButton>
@@ -180,6 +183,8 @@ export default function NavHeader() {
 
             {/* Desktop nav bar: hidden at 768px and below */}
             <AppBar
+                component="nav"
+                aria-label="Primary navigation"
                 position="static"
                 elevation={0}
                 sx={{
