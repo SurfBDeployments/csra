@@ -78,7 +78,8 @@ export default function NavHeader() {
                     </IconButton>
 
                     <Link href="/" sx={{ display: 'block', textDecoration: 'none' }}>
-                        <img src="/csra-banner.png" alt="CSRA Banner" style={{ width: 'auto' }} />
+                        <img src="/csra-banner.png" alt="CSRA Banner" style={{ width: 'auto' }} fetchPriority=
+                            'high' />
                     </Link>
 
                 </Box>
